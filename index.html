@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f0f7f4" />
+  <meta name="theme-color" content="#2f4f4f" />
 
-  <title>Homam Dany | Ingénierie des données & Intelligence Artificielle</title>
+  <title>Homam Dany | Ingénierie des Données & Intelligence Artificielle</title>
   <meta name="description"
-    content="Portfolio de Homam Dany — Ingénieur Logiciel & IA/Data (FST Tanger). Master IDIA. Projets de développement, architecture et exploitation avancée des données." />
+    content="Portfolio de Homam Dany — Étudiant en Master Ingénierie des Données et Intelligence Artificielle (IDIA) à la FST Tanger. Conception de pipelines de données, Big Data, Machine Learning & RAG." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Homam Dany — Ingénierie Logicielle & Intelligence Artificielle" />
+  <meta property="og:title" content="Homam Dany — Ingénierie des Données & Intelligence Artificielle" />
   <meta property="og:description"
-    content="Conception robuste, Data & Intelligence Artificielle. Disponible pour des opportunités." />
+    content="Pipelines de données robustes, architectures Big Data & Intelligence Artificielle. Disponible pour opportunités." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./MaPhoto1.jpeg" />
+  <meta property="og:image" content="./Couverture.png" />
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +24,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
-  <!-- Tailwind -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -44,18 +44,19 @@
               700: '#4a7d7e',
               800: '#385e5e',
               900: '#2f4f4f',
+              950: '#1b3030',
             }
           },
           boxShadow: {
-            'soft': '0 20px 40px -15px rgba(47, 79, 79, 0.10)',
-            'card': '0 0 0 1px rgba(47, 79, 79, 0.06), 0 14px 40px -18px rgba(47, 79, 79, 0.14)',
-            'card-hover': '0 0 0 1px rgba(95, 158, 160, 0.22), 0 26px 55px -20px rgba(47, 79, 79, 0.22)',
-            'glow': '0 0 0 1px rgba(162, 210, 198, 0.35), 0 25px 80px -40px rgba(95, 158, 160, 0.65)'
+            'soft': '0 20px 40px -15px rgba(47, 79, 79, 0.12)',
+            'card': '0 0 0 1px rgba(47, 79, 79, 0.08), 0 16px 40px -16px rgba(47, 79, 79, 0.12)',
+            'card-hover': '0 0 0 1px rgba(95, 158, 160, 0.35), 0 25px 50px -15px rgba(47, 79, 79, 0.22)',
+            'glow': '0 0 0 1px rgba(162, 210, 198, 0.4), 0 20px 60px -25px rgba(95, 158, 160, 0.6)'
           },
           keyframes: {
-            floaty: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(14px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
             shimmer: {
               '0%': { backgroundPosition: '0% 50%' },
@@ -63,7 +64,7 @@
             }
           },
           animation: {
-            floaty: 'floaty 6s ease-in-out infinite',
+            fadeIn: 'fadeIn .4s ease-out forwards',
             shimmer: 'shimmer 5s ease-in-out infinite',
           }
         }
@@ -78,58 +79,12 @@
       text-rendering: geometricPrecision;
     }
 
-    /* Premium text gradient */
     .text-gradient-sage {
-      background: linear-gradient(120deg, #2f4f4f 0%, #5f9ea0 45%, #a2d2c6 100%);
+      background: linear-gradient(120deg, #2f4f4f 0%, #5f9ea0 50%, #a2d2c6 100%);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-
-    /* Nice underline for active nav */
-    .nav-link {
-      position: relative;
-      padding-bottom: 6px;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 2px;
-      border-radius: 99px;
-      background: linear-gradient(90deg, rgba(95, 158, 160, .9), rgba(162, 210, 198, .9));
-      transition: width .25s ease;
-      opacity: .9;
-    }
-
-    .nav-link:hover::after,
-    .nav-link[data-active="true"]::after {
-      width: 100%;
-    }
-
-    /* Project parallax */
-    .img-parallax {
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
-    }
-
-    .group:hover .img-parallax {
-      transform: scale(1.06);
-    }
-
-    /* Subtle 3D tilt on hover (card) */
-    .tilt {
-      transform-style: preserve-3d;
-      transition: transform .25s ease, box-shadow .25s ease;
-      will-change: transform;
-    }
-
-    .tilt:hover {
-      transform: translateY(-6px);
     }
 
     /* Scrollbar */
@@ -138,7 +93,7 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #fff;
+      background: #f4f9f9;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -150,105 +105,80 @@
       background: #5f9ea0;
     }
 
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .7s ease, transform .7s ease;
+    .img-parallax {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-
-      .img-parallax,
-      .tilt,
-      .animate-floaty,
-      .animate-shimmer {
-        animation: none !important;
-        transition: none !important;
-      }
+    .group:hover .img-parallax {
+      transform: scale(1.05);
     }
   </style>
-
-  <!-- JSON-LD (SEO) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Homam Dany",
-      "url": "",
-      "jobTitle": "Master IDIA Student",
-      "email": "mailto:dany.homam@etu.uae.ac.ma",
-      "telephone": "+212668132968",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tanger",
-        "addressCountry": "MA"
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Université Abdelmalek Essaâdi"
-      },
-      "sameAs": [
-        "https://linkedin.com/in/homam-dany",
-        "https://github.com/Homam-Dany"
-      ]
-    }
-  </script>
 </head>
 
-<body class="antialiased selection:bg-sage-200 selection:text-sage-900">
+<body class="antialiased selection:bg-sage-200 selection:text-sage-900 bg-[#f8fbfb] min-h-screen flex flex-col">
 
-  <!-- Skip link -->
-  <a href="#about"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-sage-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-card">
-    Aller au contenu
-  </a>
-
-  <!-- NAVBAR -->
-  <nav id="navbar"
-    class="fixed top-0 w-full z-50 bg-white/82 backdrop-blur-md border-b border-sage-100/60 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#about"
-        class="font-serif text-2xl font-bold tracking-tight text-sage-900 hover:text-sage-500 transition-colors">
+  <!-- UN SEUL ET UNIQUE MENU EN HAUT, SANS EMOJI, BOUTONS BIEN SEPARES -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-sage-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logo / Identité -->
+      <button onclick="navigateTo('home')" class="font-serif text-2xl font-bold tracking-tight text-sage-900 hover:text-sage-500 transition-colors cursor-pointer text-left flex-shrink-0">
         Homam Dany<span class="text-sage-500">.</span>
-      </a>
+      </button>
 
-      <!-- Desktop nav -->
-      <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-sage-800">
-        <a href="#about" class="nav-link hover:text-sage-500 transition-colors">À propos</a>
-        <a href="#impact" class="nav-link hover:text-sage-500 transition-colors">Impact</a>
-        <a href="#projects" class="nav-link hover:text-sage-500 transition-colors">Projets</a>
-        <a href="#skills" class="nav-link hover:text-sage-500 transition-colors">Compétences</a>
-        <a href="#parcours" class="nav-link hover:text-sage-500 transition-colors">Parcours</a>
-        <a href="#contact" class="nav-link hover:text-sage-500 transition-colors">Contact</a>
-      </div>
+      <!-- Boutons du menu séparés (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-1.5 p-1.5 bg-sage-50/80 rounded-full border border-sage-200/70">
+        <button id="nav-btn-home" onclick="navigateTo('home')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer bg-sage-900 text-white shadow-sm"
+          data-target="home">
+          Accueil
+        </button>
+        <button id="nav-btn-experience" onclick="navigateTo('experience')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="experience">
+          Expériences
+        </button>
+        <button id="nav-btn-projects" onclick="navigateTo('projects')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="projects">
+          Projets
+        </button>
+        <button id="nav-btn-about" onclick="navigateTo('about')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="about">
+          À propos
+        </button>
+        <button id="nav-btn-skills" onclick="navigateTo('skills')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="skills">
+          Compétences
+        </button>
+        <button id="nav-btn-parcours" onclick="navigateTo('parcours')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="parcours">
+          Parcours
+        </button>
+        <button id="nav-btn-contact" onclick="navigateTo('contact')"
+          class="nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer"
+          data-target="contact">
+          Contact
+        </button>
+      </nav>
 
-      <div class="hidden md:flex items-center gap-3">
-        <span
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-100 text-xs font-semibold text-sage-800">
+      <!-- Action droite (CV & Statut) -->
+      <div class="hidden sm:flex items-center gap-3 flex-shrink-0">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">
           <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
-          Disponible
+          Master IDIA
         </span>
-
         <a href="./Homam_Dany.pdf" target="_blank" rel="noopener"
-          class="inline-flex px-6 py-2.5 rounded-full bg-sage-900 text-white text-xs font-semibold uppercase tracking-wider hover:bg-sage-700 hover:shadow-glow transition-all transform hover:-translate-y-0.5">
+          class="px-5 py-2.5 rounded-full bg-sage-900 text-white text-xs font-semibold uppercase tracking-wider hover:bg-sage-700 hover:shadow-glow transition-all">
           Télécharger CV
         </a>
       </div>
 
-      <!-- Mobile button -->
-      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-sage-100 bg-white hover:bg-sage-50 transition"
+      <!-- Bouton Menu Mobile -->
+      <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-sage-200 bg-white hover:bg-sage-50 transition"
         aria-label="Ouvrir le menu" aria-expanded="false">
         <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-sage-900">
@@ -259,20 +189,19 @@
       </button>
     </div>
 
-    <!-- Mobile panel -->
-    <div id="mobilePanel" class="md:hidden hidden border-t border-sage-100/60 bg-white/95 backdrop-blur">
-      <div class="max-w-7xl mx-auto px-6 py-5 grid gap-3 text-sm font-medium text-sage-800">
-        <a href="#about" class="py-2">À propos</a>
-        <a href="#impact" class="py-2">Impact</a>
-        <a href="#projects" class="py-2">Projets</a>
-        <a href="#skills" class="py-2">Compétences</a>
-        <a href="#parcours" class="py-2">Parcours</a>
-        <a href="#contact" class="py-2">Contact</a>
-        <div class="pt-3 flex items-center justify-between gap-3">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-100 text-xs font-semibold text-sage-800">
-            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
-            Tanger • Stage/Junior
-          </span>
+    <!-- Menu déroulant Mobile -->
+    <div id="mobilePanel" class="lg:hidden hidden border-t border-sage-200 bg-white/98 backdrop-blur-md px-6 py-5 shadow-lg">
+      <div class="grid gap-2 text-sm font-medium">
+        <button onclick="navigateTo('home'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-bold bg-sage-900 text-white" data-target="home">Accueil</button>
+        <button onclick="navigateTo('experience'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="experience">Expériences</button>
+        <button onclick="navigateTo('projects'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="projects">Projets</button>
+        <button onclick="navigateTo('about'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="about">À propos</button>
+        <button onclick="navigateTo('skills'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="skills">Compétences</button>
+        <button onclick="navigateTo('parcours'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="parcours">Parcours</button>
+        <button onclick="navigateTo('contact'); toggleMobileMenu();" class="mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50" data-target="contact">Contact</button>
+        
+        <div class="pt-3 mt-2 border-t border-sage-100 flex items-center justify-between">
+          <span class="text-xs text-sage-600">Tanger, Maroc • Stage/Junior</span>
           <a href="./Homam_Dany.pdf" target="_blank" rel="noopener"
             class="px-5 py-2 rounded-full bg-sage-900 text-white text-xs font-semibold uppercase tracking-wider hover:bg-sage-700 transition">
             CV
@@ -280,652 +209,1864 @@
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="about"
-    class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 bg-gradient-to-b from-sage-50/50 to-white overflow-hidden relative">
-    
-    <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
-      <!-- Text -->
-      <div class="md:col-span-7 reveal">
-        <div class="flex flex-wrap items-center gap-2 mb-7">
-          <span
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-widest">
-            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
-            Master IDIA
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-sage-100 text-sage-800 text-xs font-semibold">
-            Architecture • Intelligence • Data
-          </span>
+  <!-- CONTENEUR PRINCIPAL : SEULE LA VUE CHOISIE S'AFFICHE (PAS DE PASSAGE SANS CLIC) -->
+  <main class="flex-1 pt-20">
+
+    <!-- ======================================================== -->
+    <!-- VUE 1 : ACCUEIL (VITRINE PRINCIPALE & PROFIL EXÉCUTIF)   -->
+    <!-- ======================================================== -->
+    <div id="view-home" class="portfolio-view animate-fadeIn pb-20">
+      
+      <!-- 1. PHOTO DE COUVERTURE : PLEINE LARGEUR EN TÊTE -->
+      <section class="w-full relative overflow-hidden bg-sage-950">
+        <div class="w-full relative">
+          <img src="./Couverture.png" alt="Couverture Homam Dany — Ingénierie des Données & Intelligence Artificielle"
+            class="w-full h-auto max-h-[75vh] object-cover object-center block" />
+          <div class="absolute inset-0 bg-gradient-to-t from-sage-950/60 via-transparent to-transparent pointer-events-none"></div>
         </div>
+      </section>
 
-        <h1 class="font-serif text-5xl md:text-7xl font-bold leading-[1.06] mb-7 text-sage-900">
-          Des systèmes <span class="italic text-sage-500">intelligents</span>.<br />
-          Une ingénierie <span class="text-gradient-sage animate-shimmer">solide</span>.
-        </h1>
-
-        <p class="text-lg md:text-xl text-sage-800 font-light leading-relaxed mb-10 max-w-xl">
-          Je suis <strong>Homam Dany</strong>, étudiant en <strong>ingénierie logicielle</strong> et <strong>intelligence artificielle (IDIA)</strong>. Je conçois et développe des solutions
-          <strong>robustes</strong> en alliant <strong>architecture claire</strong>, <strong>exploitation avancée des données</strong> et <strong>performances mesurables</strong>, afin de livrer des produits
-          <strong>intelligents</strong> et <strong>maintenables</strong>.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-4">
-          <a href="#projects"
-            class="px-8 py-4 rounded-full bg-sage-900 text-white font-bold shadow-soft hover:shadow-glow hover:bg-sage-800 transition-all transform hover:-translate-y-0.5">
-            Explorer mes projets
-          </a>
-          <a href="#contact"
-            class="px-8 py-4 rounded-full bg-transparent border-2 border-sage-900 text-sage-900 font-bold hover:bg-sage-900 hover:text-white transition-colors">
-            Me contacter
-          </a>
-        </div>
-
-        <div class="mt-7 flex flex-wrap gap-2">
-          <span
-            class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-sage-100 text-sm text-sage-800">
-            📍 Tanger, Maroc
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-sage-100 text-sm text-sage-800">
-            ✅ Stage / Junior
-          </span>
-          <span
-            class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-sage-100 text-sm text-sage-800">
-            ⚡ Livraison & rigueur
-          </span>
-        </div>
-      </div>
-
-      <!-- Visual -->
-      <div class="md:col-span-5 relative flex justify-center md:justify-end reveal">
-        <div class="absolute inset-0 bg-sage-200/40 rounded-full blur-[100px] -z-10"></div>
-        
-        <div class="relative w-full max-w-sm aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-          <img src="./MaPhoto1.jpeg" alt="Photo de Homam Dany" class="w-full h-full object-cover">
+      <!-- 2. PRÉSENTATION & VISION D'INGÉNIEUR (SANS REDONDANCE) -->
+      <section class="relative z-10 -mt-10 sm:-mt-14 md:-mt-16 max-w-5xl mx-auto px-4 sm:px-6 mb-16">
+        <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-10 md:p-12 border border-sage-200/80 shadow-xl">
           
-          <div class="absolute bottom-6 left-6 right-6">
-             <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-white/50 flex items-center justify-between">
-                <div>
-                  <p class="text-[10px] font-bold uppercase tracking-widest text-sage-500">Basé à</p>
-                  <p class="font-bold text-sage-900 text-sm">Tanger, Maroc</p>
-                </div>
-                <div class="w-10 h-10 rounded-full bg-sage-100 flex items-center justify-center text-xl">
-                  📍
-                </div>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALEUR AJOUTEE -->
-  <section id="impact" class="py-24 bg-white border-b border-sage-100">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900">Ma Valeur Ajoutée</h2>
-        <p class="text-sage-700 mt-4 max-w-2xl mx-auto">
-          Une double compétence technique pour concevoir des systèmes de bout en bout, de la donnée brute jusqu'à l'application finale.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 reveal">
-        <div class="p-8 rounded-3xl bg-sage-50 border border-sage-100 hover:shadow-soft transition-all group">
-          <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-sm">
-            ⚙️
-          </div>
-          <h3 class="font-serif text-2xl font-bold text-sage-900 mb-3">Ingénierie Robuste</h3>
-          <p class="text-sage-700 font-light leading-relaxed">
-            Conception d'architectures backend solides, de bases de données normalisées (3NF) et d'API performantes avec une approche <em>Engineering-first</em>.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-sage-900 text-white border border-sage-800 shadow-xl transform md:-translate-y-4">
-          <div class="w-14 h-14 rounded-2xl bg-sage-800 flex items-center justify-center text-2xl mb-6">
-            🧠
-          </div>
-          <h3 class="font-serif text-2xl font-bold text-sage-50 mb-3">Intelligence & Data</h3>
-          <p class="text-sage-200 font-light leading-relaxed">
-            Capacité à modéliser, transformer et exploiter la donnée brute pour intégrer des modèles analytiques et prédictifs au cœur des applications.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-sage-50 border border-sage-100 hover:shadow-soft transition-all group">
-          <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-sm">
-            🚀
-          </div>
-          <h3 class="font-serif text-2xl font-bold text-sage-900 mb-3">Culture DevOps</h3>
-          <p class="text-sage-700 font-light leading-relaxed">
-            Souci constant de la maintenabilité via la conteneurisation (Docker), la sécurité (RBAC) et le déploiement fiable des environnements.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-24 bg-sage-50/50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="mb-16 reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-2 block">Portfolio</span>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900">Projets Signature</h2>
-        <p class="text-sage-700 mt-4 max-w-2xl">
-          Sélection de mes réalisations combinant intelligence logicielle, modélisation et performance technique.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-10">
-        <!-- Project 1 -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50">
-            <img src="./traffic.jpg" alt="TrafficCore" class="w-full h-full object-cover img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">C++14</span>
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Raylib</span>
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-sage-100">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-2 block">
+                Portfolio d'Ingénierie
+              </span>
+              <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 leading-tight">
+                Homam Dany
+              </h1>
+              <p class="text-xs sm:text-sm text-sage-600 font-medium mt-1">
+                Élève-Ingénieur en Ingénierie des Données & Intelligence Artificielle (Master IDIA)
+              </p>
             </div>
 
-            <div class="absolute top-4 right-4">
-              <span
-                class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Simulation</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">TrafficCore Simulator 3D</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Moteur de simulation 3D from scratch : réseau routier en graphe, IA véhicules, évitement de collisions et
-              UI temps réel (configuration & observation).
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">Architecture • Graphes • Perf</span>
-              <div class="flex items-center gap-3">
-                <a href="https://github.com/Houssam-Elh/TrafficCore" target="_blank" rel="noopener"
-                  class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                  Repo →
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50">
-            <img src="./dc-manager.png" alt="DC Manager" class="w-full h-full object-cover img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Laravel 10</span>
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">RBAC</span>
-            </div>
-
-            <div class="absolute top-4 right-4">
-              <span
-                class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Web App</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">DC-Manager Orchestrator</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Plateforme d’orchestration : allocation & suivi des ressources Data Center, sécurité RBAC, traçabilité
-              (audit), base de données normalisée et règles métiers propres.
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">Sécurité • 3NF • Traçabilité</span>
-              <div class="flex items-center gap-3">
-                <a href="https://github.com/Homam-Dany/Application_Web_DataCenter" target="_blank" rel="noopener"
-                  class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                  Repo →
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 3: OmniLog -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50">
-            <img src="./omnilog.jpeg" alt="OmniLog" class="w-full h-full object-cover img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">PHP</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Marketplace</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">OmniLog Marketplace</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Marketplace complète pour la gestion et la vente de véhicules, d'engins professionnels et de manutention.
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">e-Commerce • Logistique</span>
-              <a href="https://github.com/Homam-Dany/OmniLog-Market-Place-Vehicules-et-Engins-professionnels-et-Manutentions-" target="_blank" rel="noopener" class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                Repo →
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 4: Gestion Scolaire -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50">
-            <img src="./gestion-scolaire.png" alt="Gestion Scolaire" class="w-full h-full object-cover img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Web</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Scolarité</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">Système de Gestion Scolaire</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Application web complète de gestion scolaire intégrant des espaces dédiés pour les étudiants et l'administration.
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">Portail • Dashboard</span>
-              <a href="https://github.com/Homam-Dany/Application_Web_Systeme_De_Gestion_Scolaire" target="_blank" rel="noopener" class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                Repo →
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 5: Occasio -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50 bg-sage-50/30">
-            <img src="./occasio.png" alt="Occasio Mobile" class="w-full h-full object-contain p-4 img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Android</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mobile</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">Occasio</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Application mobile performante embarquant un moteur de recherche avec filtres avancés pour une expérience utilisateur fluide.
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">Filtres • Recherche</span>
-              <a href="https://github.com/Homam-Dany/Developpemenet_Mobile_Moteur-de-Recherche-Filtres-Avances" target="_blank" rel="noopener" class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                Repo →
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 6: OmniStore -->
-        <article
-          class="group tilt bg-white rounded-3xl overflow-hidden border border-sage-100 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col reveal">
-          <div class="relative h-64 overflow-hidden border-b border-sage-50">
-            <img src="./omnistore.png" alt="OmniStore" class="w-full h-full object-cover img-parallax">
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-900/35 via-transparent to-transparent"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Full-Stack</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">e-Commerce</span>
-            </div>
-          </div>
-
-          <div class="p-8 flex-1 flex flex-col">
-            <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">OmniStore</h3>
-            <p class="text-sage-700 font-light mb-6 flex-1">
-              Application Web de gestion de commande client avec une interface utilisateur particulièrement soignée et dynamique.
-            </p>
-
-            <div class="mt-auto pt-6 border-t border-sage-50 flex items-center justify-between gap-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sage-400">Commandes • UI/UX</span>
-              <a href="https://github.com/Homam-Dany/Gestion_Commande_Client_Application_Web_OmniStore" target="_blank" rel="noopener" class="text-sm font-semibold text-sage-900 hover:text-sage-500 transition-colors">
-                Repo →
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-2 block">Expertise</span>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-6">Compétences Techniques</h2>
-        <p class="text-sage-700 max-w-2xl">
-          Une maîtrise croisée entre l'ingénierie logicielle robuste et les écosystèmes Data/IA modernes.
-        </p>
-      </div>
-
-      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">IA & Machine Learning</h4>
-          <p class="text-sm text-sage-800">Modèles prédictifs, Deep Learning, NLP, et IA Générative (LLMs).</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">TensorFlow / PyTorch</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Scikit-learn</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Transformers / NLP</span>
-          </div>
-        </div>
-
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">Data & Big Data</h4>
-          <p class="text-sm text-sage-800">Pipelines de données, traitement distribué, modélisation et BI.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Hadoop / Spark</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Pandas / NumPy</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Power BI</span>
-          </div>
-        </div>
-
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">Cloud & DevOps</h4>
-          <p class="text-sm text-sage-800">Orchestration, CI/CD, Edge Computing et systèmes distribués.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Docker / K8s</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">AWS / Azure / GCP</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Airflow / Linux</span>
-          </div>
-        </div>
-
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">Bases de Données</h4>
-          <p class="text-sm text-sage-800">Stockage relationnel, graphes et bases de documents, sécurité.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">SQL Avancé</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">MongoDB</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Neo4j</span>
-          </div>
-        </div>
-
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">Développement & Web</h4>
-          <p class="text-sm text-sage-800">Conception backend, programmation objet, et architecture MVC.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Python</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">C++ / Java</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Laravel / PHP</span>
-          </div>
-        </div>
-
-        <div class="space-y-4 reveal">
-          <h4 class="font-serif text-xl italic text-sage-600 border-b border-sage-100 pb-2">Méthode & Recherche</h4>
-          <p class="text-sm text-sage-800">Formalisation mathématique, éthique IA, métaheuristiques.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Esprit Analytique</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Recherche & Doc</span>
-            <span class="px-3 py-1 bg-sage-50 rounded-lg text-sm text-sage-900 font-medium">Rigueur</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARCOURS -->
-  <section id="parcours" class="py-24 bg-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-20 reveal">
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-4">Parcours Académique</h2>
-        <p class="text-sage-700 max-w-2xl mx-auto">
-          Une trajectoire ancrée dans l'ingénierie logicielle, évoluant vers la spécialisation en data et intelligence artificielle.
-        </p>
-      </div>
-
-      <!-- Timeline -->
-      <div class="max-w-4xl mx-auto">
-        <!-- Timeline Item 1 -->
-        <div class="relative pl-8 sm:pl-40 py-6 group reveal">
-          <div class="absolute left-0 sm:left-[8.5rem] top-0 bottom-0 w-px bg-sage-200 group-last:bg-gradient-to-b group-last:from-sage-200 group-last:to-transparent"></div>
-          <div class="absolute left-[-5px] sm:left-[8.5rem] sm:-translate-x-1/2 top-8 w-3 h-3 rounded-full bg-sage-500 ring-4 ring-white z-10"></div>
-          
-          <div class="hidden sm:block absolute left-0 top-7 w-28 text-right">
-            <span class="text-sm font-bold text-sage-900">En cours</span>
-          </div>
-
-          <div class="bg-sage-50/60 rounded-3xl p-6 sm:p-8 border border-sage-200 shadow-sm hover:shadow-soft transition-all">
-            <span class="sm:hidden text-xs font-bold text-sage-500 mb-2 block">En cours</span>
-            <h4 class="text-lg font-bold text-sage-900 mt-1 mb-2 leading-snug">Master — Ingénierie des données et intelligence artificielle (IDIA)</h4>
-            <p class="text-sm text-sage-700 font-medium">FST Tanger — Université Abdelmalek Essaâdi</p>
-          </div>
-        </div>
-
-        <!-- Timeline Item 2 -->
-        <div class="relative pl-8 sm:pl-40 py-6 group reveal">
-          <div class="absolute left-0 sm:left-[8.5rem] top-0 bottom-0 w-px bg-sage-200 group-last:bg-gradient-to-b group-last:from-sage-200 group-last:to-transparent"></div>
-          <div class="absolute left-[-5px] sm:left-[8.5rem] sm:-translate-x-1/2 top-8 w-3 h-3 rounded-full bg-sage-300 ring-4 ring-white z-10"></div>
-          
-          <div class="hidden sm:block absolute left-0 top-7 w-28 text-right">
-            <span class="text-sm font-bold text-sage-500">2025 — 2026</span>
-          </div>
-
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 hover:border-sage-200 hover:shadow-soft transition-all">
-            <span class="sm:hidden text-xs font-bold text-sage-500 mb-2 block">2025 — 2026</span>
-            <h4 class="text-lg font-bold text-sage-900 mt-1 mb-2 leading-snug">Licence — Ingénierie de Développement d’Applications Informatiques (IDAI)</h4>
-            <p class="text-sm text-sage-700 font-medium">FST Tanger — Université Abdelmalek Essaâdi</p>
-          </div>
-        </div>
-
-        <!-- Timeline Item 3 -->
-        <div class="relative pl-8 sm:pl-40 py-6 group reveal">
-          <div class="absolute left-0 sm:left-[8.5rem] top-0 bottom-0 w-px bg-sage-200 group-last:bg-gradient-to-b group-last:from-sage-200 group-last:to-transparent"></div>
-          <div class="absolute left-[-5px] sm:left-[8.5rem] sm:-translate-x-1/2 top-8 w-3 h-3 rounded-full bg-sage-300 ring-4 ring-white z-10"></div>
-          
-          <div class="hidden sm:block absolute left-0 top-7 w-28 text-right">
-            <span class="text-sm font-bold text-sage-500">2022 — 2025</span>
-          </div>
-
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 hover:border-sage-200 hover:shadow-soft transition-all">
-            <span class="sm:hidden text-xs font-bold text-sage-500 mb-2 block">2022 — 2025</span>
-            <h4 class="text-lg font-bold text-sage-900 mt-1 mb-2 leading-snug">Deust - Mathématiques Informatique Physique (MIP)</h4>
-            <p class="text-sm text-sage-700 font-medium">FST Tanger — Université Abdelmalek Essaâdi</p>
-          </div>
-        </div>
-
-        <!-- Timeline Item 4 -->
-        <div class="relative pl-8 sm:pl-40 py-6 group reveal">
-          <div class="absolute left-0 sm:left-[8.5rem] top-0 bottom-0 w-px bg-sage-200 group-last:bg-gradient-to-b group-last:from-sage-200 group-last:to-transparent"></div>
-          <div class="absolute left-[-5px] sm:left-[8.5rem] sm:-translate-x-1/2 top-8 w-3 h-3 rounded-full bg-sage-300 ring-4 ring-white z-10"></div>
-          
-          <div class="hidden sm:block absolute left-0 top-7 w-28 text-right">
-            <span class="text-sm font-bold text-sage-500">2021 — 2022</span>
-          </div>
-
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 hover:border-sage-200 hover:shadow-soft transition-all">
-            <span class="sm:hidden text-xs font-bold text-sage-500 mb-2 block">2021 — 2022</span>
-            <h4 class="text-lg font-bold text-sage-900 mt-1 mb-2 leading-snug">Baccalauréat Scientifique-Sciences Physique chimie - option francais (PC)</h4>
-            <p class="text-sm text-sage-700 font-medium">Lycee Q.ABDALLAH CHEFCHAOUNI - OULAD TEIMA - TAROUDANT </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 bg-sage-50 relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="bg-white rounded-[3rem] p-10 md:p-16 shadow-soft border border-sage-100 reveal relative overflow-hidden">
-        <!-- Decorative blur elements -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-sage-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-sage-100/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
-        
-        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <!-- Text left -->
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-3 block">Contact</span>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold text-sage-900 mb-6">Prêt à relever de nouveaux défis.</h2>
-            <p class="text-lg text-sage-700 font-light mb-8">
-              Un profil hybride orienté ingénierie et data. Je suis ouvert aux opportunités intéressantes, aux stages de fin d'études et aux collaborations techniques.
-            </p>
-            <div class="flex gap-4">
+            <div class="flex items-center gap-3">
               <a href="./Homam_Dany.pdf" target="_blank" rel="noopener"
-                class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-sage-900 text-white font-semibold shadow-soft hover:shadow-glow hover:bg-sage-800 transition-all transform hover:-translate-y-0.5">
-                📄 Télécharger mon CV
+                class="px-5 py-3 rounded-full bg-sage-900 text-white font-semibold text-xs sm:text-sm hover:bg-sage-800 transition-all flex items-center gap-2 shadow-soft">
+                <svg class="w-4 h-4 text-sage-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span>Consulter CV (PDF)</span>
               </a>
+
+              <button onclick="navigateTo('contact')"
+                class="px-5 py-3 rounded-full bg-white border border-sage-300 text-sage-900 font-semibold text-xs sm:text-sm hover:bg-sage-50 transition-all cursor-pointer flex items-center gap-1.5">
+                <span>Contact</span>
+                <span>→</span>
+              </button>
             </div>
           </div>
-          
-          <!-- Cards right -->
-          <div class="space-y-4">
-            <a href="mailto:dany.homam@etu.uae.ac.ma" class="group flex items-center p-5 rounded-2xl bg-sage-50 border border-sage-100 hover:border-sage-300 hover:shadow-sm transition-all">
-              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mr-5 text-xl group-hover:scale-110 transition-transform">
-                ✉️
-              </div>
-              <div>
-                <span class="block text-xs font-bold uppercase tracking-widest text-sage-500 mb-1">Email</span>
-                <span class="font-serif text-xl font-bold text-sage-900">dany.homam@etu.uae.ac.ma</span>
-              </div>
-            </a>
-            
-            <a href="tel:+212668132968" class="group flex items-center p-5 rounded-2xl bg-sage-50 border border-sage-100 hover:border-sage-300 hover:shadow-sm transition-all">
-              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mr-5 text-xl group-hover:scale-110 transition-transform">
-                📞
-              </div>
-              <div>
-                <span class="block text-xs font-bold uppercase tracking-widest text-sage-500 mb-1">Téléphone</span>
-                <span class="font-serif text-xl font-bold text-sage-900">+212 6 68 13 29 68</span>
-              </div>
-            </a>
 
-            <div class="flex gap-4 pt-2">
-              <a href="https://linkedin.com/in/homam-dany" target="_blank" rel="noopener"
-                class="flex-1 flex items-center justify-center p-4 rounded-2xl bg-sage-50 border border-sage-100 hover:border-sage-300 transition-colors font-bold text-sage-900">
-                LinkedIn ↗
-              </a>
-              <a href="https://github.com/Homam-Dany" target="_blank" rel="noopener"
-                class="flex-1 flex items-center justify-center p-4 rounded-2xl bg-sage-50 border border-sage-100 hover:border-sage-300 transition-colors font-bold text-sage-900">
-                GitHub ↗
-              </a>
+          <div class="pt-6">
+            <p class="font-serif text-lg sm:text-xl text-sage-800 leading-relaxed font-normal mb-4">
+              « Concevoir des infrastructures de données résilientes et déployer des solutions d'intelligence artificielle ancrées dans la réalité opérationnelle. »
+            </p>
+            <p class="text-sage-600 text-sm sm:text-base font-light leading-relaxed">
+              Formé à la rigueur mathématique et aux technologies logicielles modernes, j'interviens sur l'ensemble du cycle de vie de la donnée : de l'ingestion distribuée et la modélisation formelle jusqu'à l'entraînement de modèles prédictifs, le déploiement d'architectures RAG et la conteneurisation en production.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. LA CLÉ DE L'ESPACE : LES 5 VOLETS DU PORTFOLIO (BENTO ORGANISÉ ET NON RÉPÉTITIF) -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-16">
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-1 block">Architecture de l'Espace</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">Les 5 chapitres à explorer</h2>
+          </div>
+          <p class="text-xs text-sage-500 font-medium">Cliquez sur un volet pour accéder directement aux détails complets</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-5">
+          
+          <!-- Volet 1 : Expérience Professionnelle (Col span 3) -->
+          <div onclick="navigateTo('experience')"
+            class="md:col-span-3 bg-white rounded-3xl p-6 sm:p-8 border border-sage-200/80 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-600 px-3 py-1 rounded-full bg-sage-50 border border-sage-100">
+                  Volet I • Entreprise
+                </span>
+                <span class="text-xs text-sage-400 group-hover:text-sage-700 transition-colors">Détails →</span>
+              </div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-sage-900 mb-2 group-hover:text-sage-700 transition-colors">
+                Expérience en Entreprise
+              </h3>
+              <p class="text-xs sm:text-sm text-sage-600 font-light leading-relaxed mb-4">
+                Immersion chez <strong>SMART AUTOMATION TECHNOLOGIES (SAT)</strong> : développement backend pour marketplaces automobiles et B2B, intégration d'assistants conversationnels RAG et recherche vectorielle sémantique.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-sage-100 flex items-center justify-between text-xs font-semibold text-sage-900">
+              <span>Missions SOSAUTO & OmniLog</span>
+              <span class="text-sage-500 group-hover:translate-x-1 transition-transform">Accéder au volet →</span>
+            </div>
+          </div>
+
+          <!-- Volet 2 : Réalisations & Projets (Col span 3) -->
+          <div onclick="navigateTo('projects')"
+            class="md:col-span-3 bg-white rounded-3xl p-6 sm:p-8 border border-sage-200/80 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-600 px-3 py-1 rounded-full bg-sage-50 border border-sage-100">
+                  Volet II • Ingénierie
+                </span>
+                <span class="text-xs text-sage-400 group-hover:text-sage-700 transition-colors">Détails →</span>
+              </div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-sage-900 mb-2 group-hover:text-sage-700 transition-colors">
+                Galerie de Projets
+              </h3>
+              <p class="text-xs sm:text-sm text-sage-600 font-light leading-relaxed mb-4">
+                Développement d'un moteur de simulation de réseau routier en graphes dynamiques 3D en <strong>C++14</strong> (TrafficCore), d'un outil de supervision d'infrastructures (DC-Manager) et de plateformes de gestion.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-sage-100 flex items-center justify-between text-xs font-semibold text-sage-900">
+              <span>5 réalisations documentées</span>
+              <span class="text-sage-500 group-hover:translate-x-1 transition-transform">Accéder au volet →</span>
+            </div>
+          </div>
+
+          <!-- Volet 3 : Stack & Compétences (Col span 2) -->
+          <div onclick="navigateTo('skills')"
+            class="md:col-span-2 bg-white rounded-3xl p-6 sm:p-7 border border-sage-200/80 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-600 px-2.5 py-0.5 rounded-full bg-sage-50 border border-sage-100">
+                  Volet III • Outils
+                </span>
+              </div>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-sage-900 mb-2 group-hover:text-sage-700 transition-colors">
+                Arsenal Technique
+              </h3>
+              <p class="text-xs text-sage-600 font-light leading-relaxed">
+                Calcul distribué (Spark), modélisation relationnelle 3NF & NoSQL, deep learning (PyTorch) et virtualisation Docker.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-sage-100 text-xs font-semibold text-sage-900 flex items-center justify-between">
+              <span>Stack détaillée</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <!-- Volet 4 : Parcours Académique (Col span 2) -->
+          <div onclick="navigateTo('parcours')"
+            class="md:col-span-2 bg-white rounded-3xl p-6 sm:p-7 border border-sage-200/80 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-600 px-2.5 py-0.5 rounded-full bg-sage-50 border border-sage-100">
+                  Volet IV • Cursus
+                </span>
+              </div>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-sage-900 mb-2 group-hover:text-sage-700 transition-colors">
+                Parcours Universitaire
+              </h3>
+              <p class="text-xs text-sage-600 font-light leading-relaxed">
+                Trajectoire d'excellence à la Faculté des Sciences et Techniques de Tanger : Master IDIA, Licence IDAI et DEUST MIP.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-sage-100 text-xs font-semibold text-sage-900 flex items-center justify-between">
+              <span>Chronologie</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <!-- Volet 5 : À Propos & Philosophie (Col span 2) -->
+          <div onclick="navigateTo('about')"
+            class="md:col-span-2 bg-white rounded-3xl p-6 sm:p-7 border border-sage-200/80 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-600 px-2.5 py-0.5 rounded-full bg-sage-50 border border-sage-100">
+                  Volet V • Profil
+                </span>
+              </div>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-sage-900 mb-2 group-hover:text-sage-700 transition-colors">
+                À Propos & Démarche
+              </h3>
+              <p class="text-xs text-sage-600 font-light leading-relaxed">
+                Curiosité intellectuelle, rigueur de conception, veille continue et passion pour la résolution de problèmes complexes.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-sage-100 text-xs font-semibold text-sage-900 flex items-center justify-between">
+              <span>Bio & Principes</span>
+              <span>→</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. APPROCHE D'INGÉNIERIE : VALEUR AJOUTÉE MÉTIER (UNIQUE & NON REDONDANT) -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-16">
+        <div class="p-8 sm:p-10 rounded-3xl bg-sage-900 text-white border border-sage-800 shadow-xl">
+          <div class="max-w-2xl mb-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-sage-300 mb-2 block">Méthodologie</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+              Une culture d'ingénierie axée sur l'impact réel
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl bg-sage-800/80 border border-sage-700/60">
+              <div class="w-10 h-10 rounded-xl bg-sage-700 flex items-center justify-center text-sage-200 font-serif font-bold text-lg mb-4">
+                1
+              </div>
+              <h3 class="font-serif text-lg font-bold text-white mb-2">Rigueur & Scalabilité</h3>
+              <p class="text-xs text-sage-300 font-light leading-relaxed">
+                Modélisation rigoureuse des flux, respect de l'intégrité relationnelle et conception d'architectures distribuées capables de croître avec les volumes.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-sage-800/80 border border-sage-700/60">
+              <div class="w-10 h-10 rounded-xl bg-sage-700 flex items-center justify-center text-sage-200 font-serif font-bold text-lg mb-4">
+                2
+              </div>
+              <h3 class="font-serif text-lg font-bold text-white mb-2">Pragmatisme de l'IA</h3>
+              <p class="text-xs text-sage-300 font-light leading-relaxed">
+                Intégration d'algorithmes et de modèles génératifs uniquement lorsqu'ils apportent un gain mesurable, avec évaluation continue des résultats.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-sage-800/80 border border-sage-700/60">
+              <div class="w-10 h-10 rounded-xl bg-sage-700 flex items-center justify-center text-sage-200 font-serif font-bold text-lg mb-4">
+                3
+              </div>
+              <h3 class="font-serif text-lg font-bold text-white mb-2">Qualité & Sécurité</h3>
+              <p class="text-xs text-sage-300 font-light leading-relaxed">
+                Code lisible, services modulaires isolés par conteneurs Docker, authentification sécurisée et respect des standards de production.
+              </p>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- 5. INVITATION À L'ÉCHANGE & CONTACT (POINT UNIQUE DE CONVERSION) -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-sage-900 mb-1">
+              Échangeons sur vos projets
+            </h3>
+            <p class="text-xs sm:text-sm text-sage-600 font-light">
+              Ouvert aux opportunités de stage PFE et postes d'ingénieur junior (2026–2027) au Maroc et à l'international.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <button onclick="navigateTo('contact')"
+              class="px-6 py-3 rounded-full bg-sage-900 text-white font-semibold text-xs sm:text-sm hover:bg-sage-800 transition-all cursor-pointer flex items-center gap-2">
+              <span>Formulaire de contact</span>
+              <span>→</span>
+            </button>
+            <a href="mailto:homamdany@gmail.com"
+              class="px-4 py-3 rounded-full bg-sage-50 text-sage-800 hover:bg-sage-100 border border-sage-200 text-xs font-medium transition-all">
+              homamdany@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VUE 2 : EXPERIENCES (SMART AUTOMATION TECHNOLOGIES)      -->
+    <!-- ======================================================== -->
+    <div id="view-experience" class="portfolio-view hidden py-14 px-6 animate-fadeIn">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-2 block">Parcours Professionnel</span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900">Expériences en Entreprise</h2>
+          <p class="text-sage-700 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
+            Missions de développement backend, d'architectures RAG et d'intégration de recherche sémantique au sein de <strong>SMART AUTOMATION TECHNOLOGIES (SAT)</strong>.
+          </p>
+        </div>
+
+        <!-- En-tête Entreprise SAT -->
+        <div class="mb-12 bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 shadow-card flex flex-col sm:flex-row items-center gap-6">
+          <div class="w-20 h-20 rounded-2xl bg-sage-50 border border-sage-100 flex items-center justify-center p-2 overflow-hidden shadow-sm flex-shrink-0">
+            <img src="./SAT.png" alt="Logo SMART AUTOMATION TECHNOLOGIES" class="w-full h-full object-contain"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="hidden w-full h-full font-bold text-sage-900 text-lg items-center justify-center">
+              SAT
+            </div>
+          </div>
+          <div class="text-center sm:text-left flex-1">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
+              <h3 class="font-serif text-2xl font-bold text-sage-900">SMART AUTOMATION TECHNOLOGIES (SAT)</h3>
+              <span class="px-3 py-0.5 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">Tanger, Maroc</span>
+            </div>
+            <p class="text-sm text-sage-600">
+              Entreprise spécialisée dans les solutions logicielles intelligentes, l'automatisation et les plateformes marketplace innovantes.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-12">
+          <!-- Expérience 1 : SOSAUTO -->
+          <article class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 border border-sage-100 shadow-card hover:shadow-card-hover transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-sage-100">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full bg-sage-900 text-white text-xs font-bold uppercase tracking-wider">
+                    Backend & IA
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">
+                    Juil. 2026 – Nov. 2026
+                  </span>
+                </div>
+                <h4 class="font-serif text-2xl md:text-3xl font-bold text-sage-900">
+                  Stagiaire Développement Backend et IA — Projet SOSAUTO
+                </h4>
+                <p class="text-sm font-medium text-sage-600 mt-1">
+                  Marketplace automobile et pièces détachées
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">OpenAI API</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">RAG</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">Node.js</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">MongoDB</span>
+              </div>
+            </div>
+
+            <div class="py-6">
+              <h5 class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-4">Missions & Réalisations Clés</h5>
+              <ul class="space-y-3.5 text-sage-700 leading-relaxed font-light text-sm sm:text-base">
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Backend & API REST :</strong> Contribution au backend et aux API d’une marketplace automobile et pièces détachées.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Assistant conversationnel & RAG :</strong> Travail sur un assistant conversationnel basé sur l’<strong>API OpenAI</strong> et une architecture <strong>RAG</strong> connectée à <strong>MongoDB</strong>.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Recherche intelligente & Contextualisation :</strong> Participation à la recherche intelligente et au traitement des données pour contextualiser les réponses à partir des informations disponibles dans la plateforme.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 pb-6 flex flex-wrap items-center gap-2">
+              <span class="text-xs font-bold text-sage-500 mr-2">Environnement :</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Node.js</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">MongoDB</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">API REST</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">OpenAI</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">RAG</span>
+            </div>
+
+            <!-- 3 Photos SOSAUTO -->
+            <div class="pt-6 border-t border-sage-100">
+              <h5 class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-4">Captures du Projet SOSAUTO (3 aperçus)</h5>
+              <div class="grid sm:grid-cols-3 gap-4">
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./sosauto-1.png" alt="Aperçu SOSAUTO 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70">
+                    <span class="text-xs font-bold text-sage-900">Aperçu SOSAUTO #1</span>
+                    <span class="text-[11px] text-sage-500 mt-1">Interface Marketplace</span>
+                    <span class="text-[9px] text-sage-400 mt-0.5">sosauto-1.png</span>
+                  </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./sosauto-2.png" alt="Aperçu SOSAUTO 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70">
+                    <span class="text-xs font-bold text-sage-900">Aperçu SOSAUTO #2</span>
+                    <span class="text-[11px] text-sage-500 mt-1">Assistant RAG & OpenAI</span>
+                    <span class="text-[9px] text-sage-400 mt-0.5">sosauto-2.png</span>
+                  </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./sosauto-3.png" alt="Aperçu SOSAUTO 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70">
+                    <span class="text-xs font-bold text-sage-900">Aperçu SOSAUTO #3</span>
+                    <span class="text-[11px] text-sage-500 mt-1">Catalogue & Pièces</span>
+                    <span class="text-[9px] text-sage-400 mt-0.5">sosauto-3.png</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Expérience 2 : OmniLog (PFE) -->
+          <article class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 border border-sage-100 shadow-card hover:shadow-card-hover transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-sage-100">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full bg-sage-700 text-white text-xs font-bold uppercase tracking-wider">
+                    Projet de Fin d'Études (PFE)
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">
+                    Mars 2026 – Juin 2026
+                  </span>
+                </div>
+                <h4 class="font-serif text-2xl md:text-3xl font-bold text-sage-900">
+                  Stagiaire Développement Logiciel, IA et Données — Projet OmniLog
+                </h4>
+                <p class="text-sm font-medium text-sage-600 mt-1">
+                  Marketplace B2B de véhicules et engins professionnels (BTP, Industrie, Agriculture)
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">Recherche Sémantique</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">IA & Données</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">Node.js</span>
+                <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-100">Angular</span>
+              </div>
+            </div>
+
+            <div class="py-6">
+              <h5 class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-4">Missions & Réalisations Clés</h5>
+              <ul class="space-y-3.5 text-sage-700 leading-relaxed font-light text-sm sm:text-base">
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Plateforme B2B complète :</strong> Contribution au backend et aux services applicatifs d’une plateforme B2B couvrant les annonces de vente/location, la recherche et les demandes de devis pour les secteurs du BTP, de l’industrie et de l’agriculture.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Recherche sémantique & IA :</strong> Participation à l’intégration de la recherche sémantique et de fonctionnalités d’IA pour améliorer la compréhension des requêtes et la pertinence des résultats.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Données & Catalogue :</strong> Organisation, filtrage et optimisation des données complexes de matériels professionnels.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 pb-6 flex flex-wrap items-center gap-2">
+              <span class="text-xs font-bold text-sage-500 mr-2">Environnement :</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Node.js</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Angular</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Ionic</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Recherche Sémantique</span>
+              <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">IA & Données</span>
+            </div>
+
+            <!-- 3 Photos OmniLog (Sans repos github) -->
+            <div class="pt-6 border-t border-sage-100">
+              <h5 class="text-xs font-bold uppercase tracking-widest text-sage-500 mb-4">Captures du Projet OmniLog PFE (3 aperçus)</h5>
+              <div class="grid sm:grid-cols-3 gap-4">
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./omnilog.jpeg" alt="Aperçu OmniLog Marketplace" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <div class="absolute bottom-2 left-2 bg-sage-900/85 backdrop-blur px-2.5 py-1 rounded-md text-[10px] font-bold text-white uppercase tracking-wider">
+                    OmniLog Marketplace
+                  </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./omnilog-2.png" alt="Aperçu OmniLog 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70">
+                    <span class="text-xs font-bold text-sage-900">Aperçu OmniLog #2</span>
+                    <span class="text-[11px] text-sage-500 mt-1">Recherche Sémantique</span>
+                    <span class="text-[9px] text-sage-400 mt-0.5">omnilog-2.png</span>
+                  </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video group shadow-sm flex items-center justify-center">
+                  <img src="./omnilog-3.png" alt="Aperçu OmniLog 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70">
+                    <span class="text-xs font-bold text-sage-900">Aperçu OmniLog #3</span>
+                    <span class="text-[11px] text-sage-500 mt-1">Dashboard & Gestion</span>
+                    <span class="text-[9px] text-sage-400 mt-0.5">omnilog-3.png</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-  </section>
 
-  <footer class="py-10 text-center text-sage-400 text-sm bg-white border-t border-sage-100">
-    <div class="max-w-7xl mx-auto px-6">
-      <p class="font-medium">© 2027 Homam Dany — Tanger, Maroc</p>
-      <p class="mt-2">Conçu avec rigueur • Architecture • Data • Intelligence</p>
+
+    <!-- ======================================================== -->
+    <!-- VUE 3 : PROJETS SIGNATURE                                -->
+    <!-- ======================================================== -->
+    <div id="view-projects" class="portfolio-view hidden py-12 sm:py-16 px-4 sm:px-6 animate-fadeIn">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- En-tête de section -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            Portfolio & Réalisations
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+            Projets & Architectures <span class="italic text-sage-600 font-normal">d'Ingénierie</span>.
+          </h2>
+          <p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">
+            Sélection de réalisations d'envergure combinant <strong>algorithmique avancée</strong>, <strong>modélisation mathématique</strong>, <strong>systèmes distribués</strong> et <strong>développement logiciel robuste</strong>.
+          </p>
+        </div>
+
+        <!-- Barre de Filtres Dynamique -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <button onclick="filterProjects('all', this)"
+            class="project-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer bg-sage-900 text-white shadow-sm border border-sage-900">
+            Tous les projets (5)
+          </button>
+          <button onclick="filterProjects('simulation', this)"
+            class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer bg-white text-sage-800 border border-sage-200 hover:border-sage-400 hover:bg-sage-50">
+            Algorithmique & Graphes 3D (1)
+          </button>
+          <button onclick="filterProjects('systems', this)"
+            class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer bg-white text-sage-800 border border-sage-200 hover:border-sage-400 hover:bg-sage-50">
+            Systèmes & Data Center (1)
+          </button>
+          <button onclick="filterProjects('web', this)"
+            class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer bg-white text-sage-800 border border-sage-200 hover:border-sage-400 hover:bg-sage-50">
+            Web Métier & e-Commerce (2)
+          </button>
+          <button onclick="filterProjects('mobile', this)"
+            class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer bg-white text-sage-800 border border-sage-200 hover:border-sage-400 hover:bg-sage-50">
+            Mobile & Moteur de Recherche (1)
+          </button>
+        </div>
+
+        <!-- Grille des Projets -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10">
+          
+          <!-- Projet 1 : TrafficCore Simulator 3D (PROJET PHARE EN PLEINE LARGEUR) -->
+          <article data-category="simulation"
+            class="project-card md:col-span-2 group bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden border border-sage-200/90 shadow-card hover:shadow-card-hover transition-all grid lg:grid-cols-12">
+            
+            <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden bg-sage-950">
+              <img src="./traffic.jpg" alt="TrafficCore Simulator 3D"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90" />
+              <div class="absolute inset-0 bg-gradient-to-t from-sage-950/80 via-transparent to-transparent"></div>
+              
+              <!-- Badges sur l'image -->
+              <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                <span class="bg-sage-900/90 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold text-white uppercase tracking-wider border border-white/10">
+                  Projet Phare • Algorithmique
+                </span>
+                <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold text-sage-900">
+                  C++14
+                </span>
+              </div>
+              
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-sage-300">Architecture & Simulation</span>
+                <p class="font-serif text-lg font-bold">Modélisation en Graphe Orienté Pondéré</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 p-6 sm:p-8 md:p-10 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500">Graphes & Calcul Haute Performance</span>
+                  <span class="px-3 py-0.5 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">Raylib 3D</span>
+                </div>
+                
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-3">
+                  TrafficCore Simulator 3D
+                </h3>
+                
+                <p class="text-sage-700 font-light text-sm sm:text-base leading-relaxed mb-5">
+                  Moteur de simulation de trafic routier urbain développé from scratch en <strong>C++14</strong> avec rendu 3D temps réel via <strong>Raylib</strong>. Le système modélise l'ensemble du réseau routier sous forme de graphes orientés pondérés avec calcul de flux et gestion des comportements véhiculaires.
+                </p>
+
+                <!-- Points d'architecture clés -->
+                <div class="space-y-2 mb-6 text-xs sm:text-sm text-sage-700">
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-5 h-5 rounded-md bg-sage-100 text-sage-800 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <span><strong>Théorie des Graphes :</strong> Noeuds (intersections), arêtes (voies routières) avec pondération dynamique par la vitesse et la densité.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-5 h-5 rounded-md bg-sage-100 text-sage-800 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <span><strong>IA des Véhicules & Prévoyance :</strong> Algorithmes d'anticipation et d'évitement de collisions avec gestion des priorités aux carrefours.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-5 h-5 rounded-md bg-sage-100 text-sage-800 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <span><strong>Performance C++14 :</strong> Gestion optimisée de la mémoire et architecture orientée données pour maintenir un taux de rafraîchissement élevé.</span>
+                  </div>
+                </div>
+
+                <!-- Tags technologiques -->
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">C++14</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Raylib 3D</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Théorie des Graphes</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">IA Comportementale</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-xs font-medium border border-sage-100">Rendu Temps Réel</span>
+                </div>
+              </div>
+
+              <!-- Bas de carte avec bouton GitHub direct -->
+              <div class="pt-5 border-t border-sage-100 flex flex-wrap items-center justify-between gap-4">
+                <span class="text-xs font-bold text-sage-600 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                  Projet R&D Open-Source
+                </span>
+                <a href="https://github.com/Houssam-Elh/TrafficCore" target="_blank" rel="noopener"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-900 text-white font-bold text-xs hover:bg-sage-800 hover:shadow-soft transition-all transform hover:-translate-y-0.5">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                  <span>Explorer le code source ↗</span>
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- Projet 2 : DC-Manager Orchestrator -->
+          <article data-category="systems"
+            class="project-card group bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-60 overflow-hidden border-b border-sage-100 bg-sage-950">
+                <img src="./dc-manager.png" alt="DC Manager" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-sage-900/60 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4 flex gap-2">
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Laravel 10</span>
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">3NF Normalisé</span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Data Center</span>
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-8">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-sage-500 block mb-1">Architecture & Sécurité</span>
+                <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">DC-Manager Orchestrator</h3>
+                <p class="text-sage-700 font-light text-sm leading-relaxed mb-4">
+                  Plateforme d'orchestration pour l'allocation et le suivi des ressources physiques et logiques en Data Center.
+                </p>
+                
+                <ul class="space-y-2 text-xs text-sage-600 mb-5">
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Base relationnelle rigoureusement modélisée en <strong>3ème Forme Normale (3NF)</strong>.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Contrôle d'accès granulaire basé sur les rôles (<strong>RBAC</strong>) et audit logging.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Inventaire temps réel des baies, serveurs, switches et allocations réseau.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Laravel 10</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">MySQL 3NF</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">RBAC</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Audit Trail</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 pt-0 border-t border-sage-100 mt-4 flex items-center justify-between">
+              <span class="text-xs font-semibold text-sage-500">Traçabilité & Sécurité</span>
+              <a href="https://github.com/Homam-Dany/Application_Web_DataCenter" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-sage-900 hover:text-sage-600 group-hover:translate-x-1 transition-all">
+                <span>Code sur GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projet 3 : Système de Gestion Scolaire -->
+          <article data-category="web"
+            class="project-card group bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-60 overflow-hidden border-b border-sage-100 bg-sage-950">
+                <img src="./gestion-scolaire.png" alt="Gestion Scolaire" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-sage-900/60 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4 flex gap-2">
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Web App</span>
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Dashboard</span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Scolarité</span>
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-8">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-sage-500 block mb-1">Plateforme Métier & Analytics</span>
+                <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">Système de Gestion Scolaire</h3>
+                <p class="text-sage-700 font-light text-sm leading-relaxed mb-4">
+                  Portail web centralisé pour l'administration, les enseignants et les étudiants avec tableaux de bord analytiques.
+                </p>
+                
+                <ul class="space-y-2 text-xs text-sage-600 mb-5">
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Gestion modulaire des notes, moyennes semestrielles et bulletins informatisés.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Espaces d'authentification dédiés avec tableaux de bord personnalisés.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Génération de rapports et indicateurs visuels de suivi de scolarité.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">PHP & MySQL</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">MVC Architecture</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Dashboards</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Reporting</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 pt-0 border-t border-sage-100 mt-4 flex items-center justify-between">
+              <span class="text-xs font-semibold text-sage-500">Portail & Gestion</span>
+              <a href="https://github.com/Homam-Dany/Application_Web_Systeme_De_Gestion_Scolaire" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-sage-900 hover:text-sage-600 group-hover:translate-x-1 transition-all">
+                <span>Code sur GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projet 4 : Occasio Mobile -->
+          <article data-category="mobile"
+            class="project-card group bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-60 overflow-hidden border-b border-sage-100 bg-sage-50/50 flex items-center justify-center p-4">
+                <img src="./occasio.png" alt="Occasio Mobile" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute top-4 left-4 flex gap-2">
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Android</span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mobile</span>
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-8">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-sage-500 block mb-1">Développement Mobile & UX</span>
+                <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">Occasio — Recherche Mobile</h3>
+                <p class="text-sage-700 font-light text-sm leading-relaxed mb-4">
+                  Application mobile Android native intégrant un moteur de recherche performant avec filtres avancés.
+                </p>
+                
+                <ul class="space-y-2 text-xs text-sage-600 mb-5">
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Moteur de filtrage multi-critères dynamique avec réponse instantanée.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Architecture mobile optimisée pour la réactivité et la sobriété des requêtes.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Navigation fluide et gestion du cache pour une consultation hors-ligne partielle.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Android SDK</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Java</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Filtres Multi-Critères</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">UI Mobile</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 pt-0 border-t border-sage-100 mt-4 flex items-center justify-between">
+              <span class="text-xs font-semibold text-sage-500">Moteur de Recherche</span>
+              <a href="https://github.com/Homam-Dany/Developpemenet_Mobile_Moteur-de-Recherche-Filtres-Avances" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-sage-900 hover:text-sage-600 group-hover:translate-x-1 transition-all">
+                <span>Code sur GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projet 5 : OmniStore -->
+          <article data-category="web"
+            class="project-card group bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-60 overflow-hidden border-b border-sage-100 bg-sage-950">
+                <img src="./omnistore.png" alt="OmniStore" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-sage-900/60 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4 flex gap-2">
+                  <span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-sage-900">Full-Stack</span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="bg-sage-900/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">e-Commerce</span>
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-8">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-sage-500 block mb-1">Transactions & Gestion de Flux</span>
+                <h3 class="font-serif text-2xl font-bold text-sage-900 mb-2">OmniStore — Gestion de Commandes</h3>
+                <p class="text-sage-700 font-light text-sm leading-relaxed mb-4">
+                  Application web transactionnelle complète de commande client, contrôle des stocks et facturation.
+                </p>
+                
+                <ul class="space-y-2 text-xs text-sage-600 mb-5">
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Gestion du panier interactif, validation des étapes d'achat et contrôle d'inventaire.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Intégrité transactionnelle SQL garantissant la cohérence des stocks en temps réel.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage-800 font-bold">•</span>
+                    <span>Interface utilisateur réactive et intuitive pour les opérateurs et clients.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Full-Stack Web</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Transactions SQL</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Gestion de Flux</span>
+                  <span class="px-2 py-0.5 rounded bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">UI/UX</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 pt-0 border-t border-sage-100 mt-4 flex items-center justify-between">
+              <span class="text-xs font-semibold text-sage-500">Flux Transactionnels</span>
+              <a href="https://github.com/Homam-Dany/Gestion_Commande_Client_Application_Web_OmniStore" target="_blank" rel="noopener"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-sage-900 hover:text-sage-600 group-hover:translate-x-1 transition-all">
+                <span>Code sur GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VUE 4 : A PROPOS DE MOI (PHOTO PURE SANS AUCUN AJOUT)    -->
+    <!-- ======================================================== -->
+    <div id="view-about" class="portfolio-view hidden py-12 sm:py-16 px-4 sm:px-6 animate-fadeIn">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- En-tête de section -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            Profil & Philosophie d'Ingénierie
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+            De la rigueur mathématique aux architectures <span class="italic text-sage-600 font-normal">d'IA concrètes</span>.
+          </h2>
+          <p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">
+            Élève-Ingénieur passionné par l'alliance entre la <strong>robustesse du génie logiciel</strong>, la <strong>théorie mathématique</strong> et la <strong>puissance décisionnelle de la donnée</strong>.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-10 items-start mb-12">
+          
+          <!-- Colonne Gauche (5 cols) : PHOTO TOTALEMENT PURE (STRICTEMENT SANS AUCUN AJOUT PAR-DESSUS) -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            
+            <!-- Cadre de la photo : image pure et nette, aucun badge ni texte superposé -->
+            <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-4 md:border-8 border-white bg-white">
+              <img src="./MaPhoto1.jpeg" alt="Photo de Homam Dany"
+                class="w-full h-auto object-cover rounded-2xl block" />
+            </div>
+
+            <!-- Carte d'identité et informations situées STRICTEMENT EN-DESSOUS de l'image -->
+            <div class="mt-6 w-full max-w-sm p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card text-center">
+              <h3 class="font-serif text-2xl font-bold text-sage-900">Homam Dany</h3>
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-500 mt-1">Master IDIA • FST Tanger</p>
+              
+              <div class="flex items-center justify-center gap-2 mt-3 text-xs text-sage-600">
+                <svg class="w-4 h-4 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span>Tanger, Maroc (Mobilité internationale)</span>
+              </div>
+
+              <!-- Langues & Compétences transversales -->
+              <div class="pt-5 mt-5 border-t border-sage-100 flex flex-wrap justify-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Français (Courant)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Anglais (Technique)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-800 text-[11px] font-semibold border border-sage-100">Arabe (Natif)</span>
+              </div>
+
+              <!-- Bouton direct vers le contact -->
+              <div class="mt-5">
+                <button onclick="navigateTo('contact')"
+                  class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-sage-900 text-white font-bold text-xs hover:bg-sage-800 transition-all cursor-pointer">
+                  <span>Prendre contact</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Colonne Droite (7 cols) : Biographie narrative et piliers d'expertise -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-sage-200/80 shadow-card">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500 block mb-2">À Propos de Mon Profil</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-5">
+                Une vision holistique : de la donnée brute à la décision intelligente.
+              </h3>
+              
+              <div class="space-y-4 text-sage-700 font-light leading-relaxed text-sm sm:text-base">
+                <p>
+                  Actuellement en <strong>Master Ingénierie des Données et Intelligence Artificielle (IDIA)</strong> à la <strong>Faculté des Sciences et Techniques de Tanger</strong>, mon parcours s’est forgé sur une base scientifique approfondie : un cycle <strong>Deust MIP (Mathématiques, Informatique, Physique)</strong> complété par une <strong>Licence en Ingénierie de Développement d'Applications Informatiques (IDAI)</strong>.
+                </p>
+                <p>
+                  Cette formation m'a inculqué une conviction centrale : <em>les systèmes d'IA les plus performants reposent avant tout sur des architectures logicielles saines, des bases de données rigoureusement modélisées et des flux de données résilients</em>.
+                </p>
+                <p>
+                  Au cours de mes missions au sein de l'entreprise <strong>SMART AUTOMATION TECHNOLOGIES (SAT)</strong> à Tanger — sur les plateformes <strong>SOSAUTO</strong> (marketplace automobile) et <strong>OmniLog</strong> (marketplace B2B d'équipements industriels) — j'ai mis en pratique ces principes en développant des services backend modulaires, en concevant des architectures <strong>RAG avec OpenAI</strong> et en intégrant de la <strong>recherche sémantique vectorielle</strong>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cartes Bento : 3 Piliers de Ma Philosophie de Travail -->
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center mb-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Rigueur Formelle</h4>
+                <p class="text-[11px] text-sage-600 mt-1 leading-snug">
+                  Modélisation mathématique, normalisation 3NF et architectures sans ambiguïté.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center mb-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Culture Produit</h4>
+                <p class="text-[11px] text-sage-600 mt-1 leading-snug">
+                  Alignement technique avec la valeur métier, la réactivité et l'expérience utilisateur.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm">
+                <div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center mb-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Veille Active</h4>
+                <p class="text-[11px] text-sage-600 mt-1 leading-snug">
+                  Expérimentation constante sur les LLMs, RAG, bases vectorielles et Big Data.
+                </p>
+              </div>
+            </div>
+
+            <!-- Chiffres Clés Synthèse -->
+            <div class="grid grid-cols-3 gap-3 p-5 rounded-2xl bg-sage-50/80 border border-sage-200/70 text-center">
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">2</p>
+                <p class="text-[10px] sm:text-xs text-sage-600 font-medium mt-0.5">Expériences Entreprise (SAT)</p>
+              </div>
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">5+</p>
+                <p class="text-[10px] sm:text-xs text-sage-600 font-medium mt-0.5">Projets Majeurs Livrés</p>
+              </div>
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">100%</p>
+                <p class="text-[10px] sm:text-xs text-sage-600 font-medium mt-0.5">Engagement & Rigueur</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VUE 5 : COMPETENCES TECHNIQUES                           -->
+    <!-- ======================================================== -->
+    <div id="view-skills" class="portfolio-view hidden py-12 sm:py-16 px-4 sm:px-6 animate-fadeIn">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- En-tête de section -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            Expertise & Savoir-Faire Technique
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+            Stack Technique & <span class="italic text-sage-600 font-normal">Compétences Clés</span>.
+          </h2>
+          <p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">
+            Une double culture rigoureuse combinant l'<strong>ingénierie des flux de données massives</strong>, l'<strong>intelligence artificielle appliquée</strong> et le <strong>développement logiciel d'entreprise</strong>.
+          </p>
+        </div>
+
+        <!-- 4 Piliers Fondamentaux de la Stack (Bannière Haute) -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Data & Big Data</h4>
+              <p class="text-[11px] text-sage-600 mt-1 leading-snug">Spark, PySpark, Hadoop, Airflow, ETL/ELT, SQL Avancé</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">IA, ML & RAG</h4>
+              <p class="text-[11px] text-sage-600 mt-1 leading-snug">PyTorch, Scikit-learn, OpenAI, RAG, Recherche Sémantique</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Bases de Données</h4>
+              <p class="text-[11px] text-sage-600 mt-1 leading-snug">PostgreSQL, MongoDB, Neo4j, Modélisation 3NF, Vector DB</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-sage-900 uppercase tracking-wider">Backend & DevOps</h4>
+              <p class="text-[11px] text-sage-600 mt-1 leading-snug">Node.js, Python, Docker, Linux/Bash, REST APIs, Git</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grille détaillée des 6 Domaines de Compétence -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          
+          <!-- Carte 1 : Data Engineering & Big Data -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">Ingénierie des Données & Big Data</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Conception et exécution de pipelines de données (ETL/ELT), ingestion de flux massifs et traitement distribué scalable.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Apache Spark & PySpark</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Hadoop Ecosystem (HDFS)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Pipelines ETL / ELT</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Python (Pandas, NumPy)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Apache Airflow</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Power BI & Analytics</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Traitement distribué & Flux</span>
+              <span class="text-sage-700 font-bold">Scalabilité</span>
+            </div>
+          </div>
+
+          <!-- Carte 2 : IA & Machine Learning -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">IA, Machine Learning & RAG</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Modélisation prédictive, réseaux de neurones profonds et intégration d'architectures d'IA générative augmentées.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-900 text-white text-xs font-semibold">Architectures RAG & OpenAI</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Recherche Sémantique</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">PyTorch & Deep Learning</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Scikit-learn & ML</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Bases Vectorielles (Embeddings)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">NLP & Similarité Cosinus</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Appliqué en production chez SAT</span>
+              <span class="text-sage-700 font-bold">SOSAUTO & OmniLog</span>
+            </div>
+          </div>
+
+          <!-- Carte 3 : Bases de Données -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">Bases de Données (SQL & NoSQL)</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Modélisation relationnelle rigoureuse, exploitation NoSQL documentaire, indexation avancée et stockage vectoriel.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">PostgreSQL & MySQL</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Normalisation 3NF</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">MongoDB (NoSQL Documentaire)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Neo4j (Bases Graphes)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Indexation B-Tree & Requêtage</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Transactions ACID & Intégrité</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Relationnel, NoSQL & Graphes</span>
+              <span class="text-sage-700 font-bold">Intégrité 3NF</span>
+            </div>
+          </div>
+
+          <!-- Carte 4 : Développement Backend & APIs -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">Développement Backend & APIs</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Programmation backend robuste, architectures de services modulaires et APIs RESTful sécurisées et documentées.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Node.js & Express</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Python (FastAPI, Flask)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">C++14 & C (Système)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Java & Conception POO</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">APIs RESTful & JWT</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Frontend (Angular, Ionic)</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Services Applicatifs & APIs</span>
+              <span class="text-sage-700 font-bold">Sécurité JWT</span>
+            </div>
+          </div>
+
+          <!-- Carte 5 : Cloud, DevOps & Systèmes -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">Cloud, DevOps & Conteneurisation</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Environnements reproductibles, conteneurisation légère, administration Linux et intégration continue.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Docker & Docker Compose</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Linux & Administration Système</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Scripting Bash / Shell</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Git & GitHub Flow</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Intégration Continue (CI/CD)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Gestion des Environnements</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Déploiement reproductible</span>
+              <span class="text-sage-700 font-bold">Docker & Linux</span>
+            </div>
+          </div>
+
+          <!-- Carte 6 : Fondements Scientifiques & Rigueur -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-sage-900 mb-2">Méthodologie & Socle Scientifique</h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-6 font-light">
+                Assise mathématique fondamentale assurant la maîtrise approfondie des algorithmes et la rigueur d'ingénierie.
+              </p>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Algèbre Linéaire & Matrices</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Théorie des Graphes (Dijkstra)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Probabilités & Statistiques</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Optimisation Mathématique</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Documentation Technique</span>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Veille R&D Continue</span>
+              </div>
+            </div>
+            
+            <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium">
+              <span>Formation Deust MIP & Master IDIA</span>
+              <span class="text-sage-700 font-bold">FST Tanger</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bandeau d'Assurance Qualité & Méthodologie -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-sage-50/70 border border-sage-200/70 grid sm:grid-cols-3 gap-6 text-center sm:text-left">
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Rigueur théorique</p>
+              <p class="text-[11px] text-sage-600">Compréhension mathématique des modèles</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Pratique en entreprise</p>
+              <p class="text-[11px] text-sage-600">Missions chez SAT Tanger</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Qualité du code</p>
+              <p class="text-[11px] text-sage-600">Architectures modulaires & documentées</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VUE 6 : PARCOURS ACADEMIQUE                             -->
+    <!-- ======================================================== -->
+    <div id="view-parcours" class="portfolio-view hidden py-12 sm:py-16 px-4 sm:px-6 animate-fadeIn">
+      <div class="max-w-5xl mx-auto">
+        
+        <!-- En-tête de section -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            Formation Scientifique & Cursus
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+            Parcours Académique <span class="italic text-sage-600 font-normal">d'Excellence</span>.
+          </h2>
+          <p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">
+            Une progression méthodique, des <strong>fondations mathématiques et algorithmiques fondamentales</strong> jusqu'à la <strong>spécialisation de pointe en Ingénierie des Données et IA</strong> à la Faculté des Sciences et Techniques de Tanger.
+          </p>
+        </div>
+
+        <!-- Timeline Connectée -->
+        <div class="relative pl-6 sm:pl-10 space-y-10 before:absolute before:left-2.5 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-sage-900 before:via-sage-500 before:to-sage-200">
+          
+          <!-- Étape 1 : Master IDIA -->
+          <div class="relative">
+            <!-- Node indicateur sur la ligne -->
+            <div class="absolute -left-6 sm:-left-10 top-6 w-5 h-5 rounded-full bg-sage-900 border-4 border-white shadow-md flex items-center justify-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            </div>
+
+            <div class="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-sage-200/90 shadow-card hover:shadow-card-hover transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-3.5 py-1 rounded-full bg-sage-900 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    En cours • 2026 — 2028
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-semibold">
+                    Master d'Excellence
+                  </span>
+                </div>
+                <span class="text-xs font-bold text-sage-500 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  FST Tanger
+                </span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-1.5">
+                Master — Ingénierie des Données et Intelligence Artificielle (IDIA)
+              </h3>
+              <p class="text-sm font-semibold text-sage-600 mb-4">
+                Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi
+              </p>
+              
+              <p class="text-sage-700 font-light text-sm sm:text-base leading-relaxed mb-5">
+                Spécialisation approfondie centrée sur les architectures de données distribuées (Big Data), les pipelines de traitement massif (ETL/ELT), le Machine Learning, le Deep Learning, les architectures RAG et la gouvernance des données d'entreprise.
+              </p>
+
+              <!-- Modules d'excellence -->
+              <div class="mb-5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-500 block mb-2.5">Savoir-faire & Modules Majeurs</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Calcul Distribué (Apache Spark, Hadoop)</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Deep Learning & NLP Avancé</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Architectures RAG & Modèles Fondatifs (LLMs)</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Pipelines ETL/ELT & Airflow</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Entrepôts de Données & Data Lake</span>
+                </div>
+              </div>
+
+              <!-- Ancrage professionnel -->
+              <div class="pt-4 border-t border-sage-100 flex items-center justify-between text-xs text-sage-600">
+                <span class="font-medium">Mise en pratique industrielle :</span>
+                <span class="font-bold text-sage-900">Missions chez SAT (SOSAUTO & OmniLog)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étape 2 : Licence IDAI -->
+          <div class="relative">
+            <!-- Node indicateur -->
+            <div class="absolute -left-6 sm:-left-10 top-6 w-5 h-5 rounded-full bg-sage-700 border-4 border-white shadow-md"></div>
+
+            <div class="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-3.5 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider">
+                    2025 — 2026
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-200/60">
+                    Diplômé avec Succès
+                  </span>
+                </div>
+                <span class="text-xs font-bold text-sage-500 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  FST Tanger
+                </span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-1.5">
+                Licence — Ingénierie de Développement d'Applications Informatiques (IDAI)
+              </h3>
+              <p class="text-sm font-semibold text-sage-600 mb-4">
+                Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi
+              </p>
+              
+              <p class="text-sage-700 font-light text-sm sm:text-base leading-relaxed mb-5">
+                Formation professionnalisante en génie logiciel, conception rigoureuse de bases de données relationnelles en 3ème forme normale, sécurité applicative et développement d'architectures web et mobiles distribuées.
+              </p>
+
+              <!-- Modules majeurs -->
+              <div class="mb-5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-500 block mb-2.5">Savoir-faire & Modules Majeurs</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Modélisation Relationnelle 3NF</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Sécurité Applicative & RBAC</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Architectures Logicielles & MVC</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Développement Web & Mobile</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Gestion de Projets & Méthodes Agiles</span>
+                </div>
+              </div>
+
+              <!-- Réalisations liées -->
+              <div class="pt-4 border-t border-sage-100 flex items-center justify-between text-xs text-sage-600">
+                <span class="font-medium">Réalisations associées :</span>
+                <span class="font-bold text-sage-900">DC-Manager Orchestrator, Gestion Scolaire & Occasio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étape 3 : Deust MIP -->
+          <div class="relative">
+            <!-- Node indicateur -->
+            <div class="absolute -left-6 sm:-left-10 top-6 w-5 h-5 rounded-full bg-sage-500 border-4 border-white shadow-md"></div>
+
+            <div class="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-3.5 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider">
+                    2022 — 2025
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-200/60">
+                    Socle Scientifique Fondamental
+                  </span>
+                </div>
+                <span class="text-xs font-bold text-sage-500 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  FST Tanger
+                </span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-1.5">
+                Deust — Mathématiques, Informatique, Physique (MIP)
+              </h3>
+              <p class="text-sm font-semibold text-sage-600 mb-4">
+                Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi
+              </p>
+              
+              <p class="text-sage-700 font-light text-sm sm:text-base leading-relaxed mb-5">
+                Cycle fondamental universitaire intensif conférant une maîtrise mathématique et algorithmique poussée : calcul matriciel, algèbre linéaire, espaces vectoriels, probabilités/statistiques et programmation structurée en C/C++.
+              </p>
+
+              <!-- Modules majeurs -->
+              <div class="mb-5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sage-500 block mb-2.5">Savoir-faire & Modules Majeurs</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Algèbre Linéaire & Calcul Matriciel</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Probabilités & Statistiques Inférentielles</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Algorithmique & Structures de Données (C/C++)</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Théorie des Graphes</span>
+                  <span class="px-3 py-1 rounded-lg bg-sage-50 text-sage-900 text-xs font-semibold border border-sage-200/70">Analyse Numérique</span>
+                </div>
+              </div>
+
+              <!-- Réalisations liées -->
+              <div class="pt-4 border-t border-sage-100 flex items-center justify-between text-xs text-sage-600">
+                <span class="font-medium">Réalisations associées :</span>
+                <span class="font-bold text-sage-900">TrafficCore Simulator 3D (C++14 & Graphes)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étape 4 : Baccalauréat -->
+          <div class="relative">
+            <!-- Node indicateur -->
+            <div class="absolute -left-6 sm:-left-10 top-6 w-5 h-5 rounded-full bg-sage-300 border-4 border-white shadow-md"></div>
+
+            <div class="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-sage-200/70 shadow-sm hover:shadow-card transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-3.5 py-1 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider">
+                    2021 — 2022
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-sage-50 text-sage-800 text-xs font-semibold border border-sage-200/60">
+                    Diplôme d'Accès Universitaire
+                  </span>
+                </div>
+                <span class="text-xs font-bold text-sage-500 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  Taroudant
+                </span>
+              </div>
+
+              <h3 class="font-serif text-2xl font-bold text-sage-900 mb-1.5">
+                Baccalauréat Scientifique — Sciences Physiques et Chimiques (Option Français)
+              </h3>
+              <p class="text-sm font-semibold text-sage-600 mb-3">
+                Lycée Qualifiant Abdallah Chefchaouni — Oulad Teima — Taroudant
+              </p>
+              
+              <p class="text-sage-700 font-light text-sm leading-relaxed">
+                Formation scientifique initiale ayant développé l'esprit critique, le raisonnement déductif et la passion pour la formalisation mathématique des phénomènes complexes.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bannière de Cohérence & Reconnaissance Académique -->
+        <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-sage-50/70 border border-sage-200/70 grid sm:grid-cols-3 gap-6 text-center sm:text-left">
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">FST Tanger</p>
+              <p class="text-[11px] text-sage-600">Université Abdelmalek Essaâdi</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Continuité du Cursus</p>
+              <p class="text-[11px] text-sage-600">Deust MIP ➔ Licence ➔ Master</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Objectif PFE</p>
+              <p class="text-[11px] text-sage-600">Stage de Fin d'Études 2026–2027</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- VUE 7 : CONTACT                                         -->
+    <!-- ======================================================== -->
+    <div id="view-contact" class="portfolio-view hidden py-12 sm:py-16 px-4 sm:px-6 animate-fadeIn">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- En-tête de section -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-900 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            Contact & Opportunités
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 tracking-tight leading-tight">
+            Construisons ensemble vos projets <span class="italic text-sage-600 font-normal">Data & IA</span>.
+          </h2>
+          <p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">
+            Actuellement à la recherche d'un <strong>Stage de Fin d'Études (PFE)</strong> ou d'une opportunité junior.
+            Échangeons sur vos besoins en <strong>architectures de données</strong>, <strong>modèles prédictifs</strong> et <strong>solutions RAG</strong>.
+          </p>
+        </div>
+
+        <!-- Conteneur Principal Exécutif -->
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch mb-10">
+          
+          <!-- Colonne Gauche (5 cols) : Carte Statut & Profil Recrutement -->
+          <div class="lg:col-span-5 bg-sage-950 text-white rounded-3xl p-8 sm:p-10 border border-sage-800 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+            <!-- Glow décoratif -->
+            <div class="absolute -top-24 -right-24 w-60 h-60 bg-sage-700/25 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-60 h-60 bg-sage-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <!-- Pastille Disponibilité -->
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-900/90 border border-sage-700/70 text-sage-200 text-xs font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Disponible : Stage PFE / Junior 2026–2027</span>
+              </div>
+
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Homam Dany</h3>
+              <p class="text-sage-300 text-sm font-light mb-6">
+                Élève-Ingénieur en Master Ingénierie des Données & Intelligence Artificielle (IDIA) à la Faculté des Sciences et Techniques de Tanger.
+              </p>
+
+              <!-- Points clés profil -->
+              <div class="space-y-3.5 pt-6 border-t border-sage-800/80 mb-8 text-xs sm:text-sm text-sage-200">
+                <div class="flex items-start gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-sage-900 border border-sage-800 flex items-center justify-center flex-shrink-0 text-sage-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  </span>
+                  <div>
+                    <strong class="text-white block font-medium">Localisation</strong>
+                    <span>Tanger, Maroc (Mobilité nationale & internationale)</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-sage-900 border border-sage-800 flex items-center justify-center flex-shrink-0 text-sage-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  </span>
+                  <div>
+                    <strong class="text-white block font-medium">Contrat recherché</strong>
+                    <span>Stage PFE (Fin d'Études) / Poste Junior</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-sage-900 border border-sage-800 flex items-center justify-center flex-shrink-0 text-sage-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  </span>
+                  <div>
+                    <strong class="text-white block font-medium">Domaines d'expertise</strong>
+                    <span>Data Engineering, Big Data, RAG & LLMs, Backend</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions Téléchargement & WhatsApp -->
+            <div class="relative z-10 pt-4 space-y-3">
+              <a href="./Homam_Dany.pdf" target="_blank" rel="noopener"
+                class="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-white text-sage-950 font-bold text-sm shadow-glow hover:bg-sage-100 transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 text-sage-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span>Télécharger mon CV (PDF)</span>
+              </a>
+
+              <a href="https://wa.me/212668132968" target="_blank" rel="noopener"
+                class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-sage-900/90 hover:bg-sage-800 border border-sage-700/80 text-white font-semibold text-xs tracking-wide transition-all">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>Échanger directement sur WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Colonne Droite (7 cols) : 4 Cartes de contact directes -->
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+            
+            <!-- Carte 1 : Email Pro -->
+            <a href="mailto:dany.homam@etu.uae.ac.ma"
+              class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-sage-100/80 text-sage-800 flex items-center justify-center mb-5 group-hover:bg-sage-900 group-hover:text-white transition-all">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500 block mb-1">Email Institutionnel & Pro</span>
+                <span class="font-semibold text-sm sm:text-base text-sage-900 break-all block group-hover:text-sage-700 transition">
+                  dany.homam@etu.uae.ac.ma
+                </span>
+                <p class="text-xs text-sage-600 mt-2 font-light">
+                  Pour candidatures de stage, opportunités d'embauche et demandes formelles.
+                </p>
+              </div>
+              <div class="pt-5 mt-4 border-t border-sage-100 flex items-center gap-1.5 text-xs font-bold text-sage-900 group-hover:text-sage-700">
+                <span>Envoyer un courriel</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </a>
+
+            <!-- Carte 2 : Téléphone Direct -->
+            <a href="tel:+212668132968"
+              class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-sage-100/80 text-sage-800 flex items-center justify-center mb-5 group-hover:bg-sage-900 group-hover:text-white transition-all">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500 block mb-1">Téléphone & WhatsApp</span>
+                <span class="font-serif text-lg font-bold text-sage-900 block group-hover:text-sage-700 transition">
+                  +212 6 68 13 29 68
+                </span>
+                <p class="text-xs text-sage-600 mt-2 font-light">
+                  Ligne directe pour entretiens de pré-sélection et échanges rapides.
+                </p>
+              </div>
+              <div class="pt-5 mt-4 border-t border-sage-100 flex items-center gap-1.5 text-xs font-bold text-sage-900 group-hover:text-sage-700">
+                <span>Appeler directement</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </a>
+
+            <!-- Carte 3 : LinkedIn -->
+            <a href="https://linkedin.com/in/homam-dany" target="_blank" rel="noopener"
+              class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center mb-5 group-hover:bg-[#0077b5] group-hover:text-white transition-all">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500 block mb-1">Réseau Professionnel</span>
+                <span class="font-semibold text-sm sm:text-base text-sage-900 block group-hover:text-sage-700 transition">
+                  linkedin.com/in/homam-dany
+                </span>
+                <p class="text-xs text-sage-600 mt-2 font-light">
+                  Retrouvez mes recommandations, actualités académiques et réseau.
+                </p>
+              </div>
+              <div class="pt-5 mt-4 border-t border-sage-100 flex items-center gap-1.5 text-xs font-bold text-sage-900 group-hover:text-sage-700">
+                <span>Voir le profil LinkedIn</span>
+                <span class="group-hover:translate-x-1 transition-transform">↗</span>
+              </div>
+            </a>
+
+            <!-- Carte 4 : GitHub -->
+            <a href="https://github.com/Homam-Dany" target="_blank" rel="noopener"
+              class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-card-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-sage-900/10 text-sage-900 flex items-center justify-center mb-5 group-hover:bg-sage-900 group-hover:text-white transition-all">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sage-500 block mb-1">Code & Projets Open-Source</span>
+                <span class="font-semibold text-sm sm:text-base text-sage-900 block group-hover:text-sage-700 transition">
+                  github.com/Homam-Dany
+                </span>
+                <p class="text-xs text-sage-600 mt-2 font-light">
+                  Code source, implémentations d'algorithmes et architectures Big Data.
+                </p>
+              </div>
+              <div class="pt-5 mt-4 border-t border-sage-100 flex items-center gap-1.5 text-xs font-bold text-sage-900 group-hover:text-sage-700">
+                <span>Explorer les dépôts</span>
+                <span class="group-hover:translate-x-1 transition-transform">↗</span>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Bannière Engagements & Confiance -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-sage-50/70 border border-sage-200/70 grid sm:grid-cols-3 gap-6 text-center sm:text-left">
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Réactivité assurée</p>
+              <p class="text-[11px] text-sage-600">Réponse garantie sous 24h ouvrées</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Convention académique</p>
+              <p class="text-[11px] text-sage-600">FST Tanger prête à signature</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 justify-center sm:justify-start">
+            <span class="w-10 h-10 rounded-xl bg-white border border-sage-200 flex items-center justify-center text-sage-800 shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 text-sage-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-sage-900">Flexibilité d'accueil</p>
+              <p class="text-[11px] text-sage-600">Présentiel, hybride ou remote</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-sage-500 text-xs sm:text-sm bg-white border-t border-sage-100 mt-auto">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="font-medium text-sage-800">© 2027 Homam Dany — Tanger, Maroc</p>
+      <p class="mt-2 text-sage-400">Master Ingénierie des Données & Intelligence Artificielle (IDIA) • FST Tanger</p>
     </div>
   </footer>
 
+  <!-- SCRIPT DE NAVIGATION PAR CLIC EXCLUSIF (AUCUN PASSAGE SANS CLIC) -->
   <script>
+    const availableViews = ['home', 'experience', 'projects', 'about', 'skills', 'parcours', 'contact'];
 
-    // Navbar shrink
-    const nav = document.getElementById('navbar');
-    const navInner = nav.querySelector('.max-w-7xl');
-    const onScroll = () => {
-      const y = window.scrollY || 0;
-      if (y > 50) {
-        nav.classList.add('shadow-sm');
-        navInner.classList.replace('h-20', 'h-16');
-      } else {
-        nav.classList.remove('shadow-sm');
-        navInner.classList.replace('h-16', 'h-20');
+    function navigateTo(viewId) {
+      if (!availableViews.includes(viewId)) {
+        viewId = 'home';
       }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
-    // Mobile menu
+      // 1. Masquer toutes les autres vues et afficher UNIQUEMENT la vue demandée
+      availableViews.forEach(id => {
+        const viewEl = document.getElementById('view-' + id);
+        if (viewEl) {
+          if (id === viewId) {
+            viewEl.classList.remove('hidden');
+          } else {
+            viewEl.classList.add('hidden');
+          }
+        }
+      });
+
+      // 2. Mettre à jour l'apparence des boutons du menu en haut (Desktop)
+      document.querySelectorAll('.nav-item').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        if (target === viewId) {
+          btn.className = 'nav-item px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer bg-sage-900 text-white shadow-sm';
+        } else {
+          btn.className = 'nav-item px-4 py-2 rounded-full text-xs font-medium text-sage-800 hover:text-sage-900 hover:bg-white/80 transition-all cursor-pointer';
+        }
+      });
+
+      // 3. Mettre à jour l'apparence du menu mobile
+      document.querySelectorAll('.mobile-nav-item').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        if (target === viewId) {
+          btn.className = 'mobile-nav-item py-2.5 px-4 text-left rounded-xl font-bold bg-sage-900 text-white';
+        } else {
+          btn.className = 'mobile-nav-item py-2.5 px-4 text-left rounded-xl font-medium text-sage-800 hover:bg-sage-50';
+        }
+      });
+
+      // 4. Remonter en haut de page instantanément pour la nouvelle vue
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 5. Mettre à jour le hash sans rechargement
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + viewId);
+      }
+    }
+
+    // Filtrage dynamique des projets dans la vue Projets
+    function filterProjects(category, btn) {
+      document.querySelectorAll('.project-filter-btn').forEach(b => {
+        b.className = 'project-filter-btn px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer bg-white text-sage-800 border border-sage-200 hover:border-sage-400 hover:bg-sage-50';
+      });
+      if (btn) {
+        btn.className = 'project-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer bg-sage-900 text-white shadow-sm border border-sage-900';
+      }
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        if (category === 'all' || cardCat === category) {
+          card.style.display = '';
+          card.classList.add('animate-fadeIn');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Gestion du menu mobile
     const menuBtn = document.getElementById('menuBtn');
     const mobilePanel = document.getElementById('mobilePanel');
     const menuIcon = document.getElementById('menuIcon');
 
-    const setMenuIcon = (open) => {
-      // swap icon lines to X
-      menuIcon.innerHTML = open
-        ? '<path d="M18 6L6 18"></path><path d="M6 6l12 12"></path>'
-        : '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
-    };
-
-    menuBtn?.addEventListener('click', () => {
+    function toggleMobileMenu() {
       const isOpen = !mobilePanel.classList.contains('hidden');
       mobilePanel.classList.toggle('hidden');
-      menuBtn.setAttribute('aria-expanded', String(!isOpen));
-      setMenuIcon(!isOpen);
-    });
-
-    // Close mobile menu on link click
-    mobilePanel.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobilePanel.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        setMenuIcon(false);
-      });
-    });
-
-    // Reveal animations
-    const revealEls = document.querySelectorAll('.reveal');
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    revealEls.forEach(el => observer.observe(el));
-
-    // Active section in navbar
-    const sections = ['about', 'impact', 'projects', 'skills', 'parcours', 'contact']
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    const io = new IntersectionObserver(entries => {
-      let visibleSec = null;
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          visibleSec = entry.target.id;
-        }
-      });
-      if (visibleSec) {
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === '#' + visibleSec) {
-            link.setAttribute('data-active', 'true');
-          } else {
-            link.setAttribute('data-active', 'false');
-          }
-        });
+      menuBtn?.setAttribute('aria-expanded', String(!isOpen));
+      if (menuIcon) {
+        menuIcon.innerHTML = !isOpen
+          ? '<path d="M18 6L6 18"></path><path d="M6 6l12 12"></path>'
+          : '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
       }
-    }, { rootMargin: '-30% 0px -70% 0px' });
-    sections.forEach(sec => io.observe(sec));
+    }
+
+    menuBtn?.addEventListener('click', toggleMobileMenu);
+
+    // Initialisation au chargement selon le hash
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && availableViews.includes(hash)) {
+        navigateTo(hash);
+      } else {
+        navigateTo('home');
+      }
+    });
   </script>
 </body>
+
 </html>
