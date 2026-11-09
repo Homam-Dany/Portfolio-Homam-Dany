@@ -102,22 +102,30 @@ tailwind.config = { theme: { extend: {
   <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-16">
     <div class="mb-8"><h2 class="font-serif text-3xl sm:text-4xl font-bold">Explorer le portfolio</h2><p class="text-sage-600 text-sm mt-1">Chaque carte ouvre une section détaillée.</p></div>
     <div class="grid md:grid-cols-6 gap-5">
-      <button onclick="go('experience')" class="md:col-span-4 md:row-span-2 text-left rounded-3xl p-8 bg-sage-900 text-white shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[320px] relative overflow-hidden">
-        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-sage-700/30 blur-3xl"></div>
-        <div class="relative">
-          <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center overflow-hidden mb-5"><img src="./SAT.png" alt="SAT" data-f="SAT.png" class="w-full h-full object-contain" onerror="this.replaceWith(document.createTextNode('SAT'))" /></div>
-          <span class="text-xs text-sage-300 font-medium">Expériences en entreprise</span>
-          <h3 class="font-serif text-3xl sm:text-4xl font-bold mt-1 leading-tight">Smart Automation Technologies</h3>
-          <p class="mt-4 text-sage-200 font-light max-w-lg leading-relaxed">Backend pour deux marketplaces (SOSAUTO et OmniLog), assistant conversationnel RAG avec l'API OpenAI et recherche sémantique.</p>
+      <button onclick="go('experience')" class="md:col-span-4 md:row-span-2 text-left rounded-3xl p-8 bg-sage-900 text-white shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-sage-700/30 blur-3xl pointer-events-none"></div>
+        <div class="relative flex items-start justify-between gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center overflow-hidden flex-shrink-0"><img src="./SAT.png" alt="SAT" class="w-full h-full object-contain" onerror="this.replaceWith(document.createTextNode('SAT'))" /></div>
+          <span class="text-xs text-sage-300 font-medium pt-1">Voir les expériences →</span>
         </div>
-        <div class="relative flex flex-wrap gap-2 mt-6"><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Node.js</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">MongoDB</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">RAG</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">OpenAI</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Angular</span></div>
+        <div class="relative mt-6">
+          <span class="text-xs text-sage-300 font-medium">Expériences en entreprise • Tanger</span>
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold mt-1 leading-tight">Smart Automation Technologies</h3>
+          <p class="mt-3 text-sage-200 font-light max-w-lg leading-relaxed">Backend pour deux marketplaces, assistant conversationnel RAG avec l'API OpenAI et recherche sémantique.</p>
+        </div>
+        <div class="relative mt-6 grid sm:grid-cols-2 gap-3">
+          <div class="p-4 rounded-2xl bg-white/10 border border-white/10"><span class="text-[11px] text-sage-300">Juil. – Nov. 2026</span><p class="font-serif text-xl font-bold leading-tight">SOSAUTO</p><p class="text-xs text-sage-200 font-light mt-1">Marketplace automobile • Backend & IA</p></div>
+          <div class="p-4 rounded-2xl bg-white/10 border border-white/10"><span class="text-[11px] text-sage-300">Mars – Juin 2026</span><p class="font-serif text-xl font-bold leading-tight">OmniLog (PFE)</p><p class="text-xs text-sage-200 font-light mt-1">Marketplace B2B • Recherche sémantique</p></div>
+        </div>
+        <div class="relative flex flex-wrap gap-2 mt-auto pt-6"><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Node.js</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">MongoDB</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">RAG</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">OpenAI</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Angular</span></div>
       </button>
-      <button onclick="go('about')" class="md:col-span-2 text-left rounded-3xl overflow-hidden bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all zoom">
-        <div class="h-40 bg-sage-100 overflow-hidden"><img src="./MaPhoto1.jpeg" alt="Homam Dany" data-f="MaPhoto1.jpeg" class="w-full h-full object-cover object-top" onerror="this.style.display='none'" /></div>
-        <div class="p-5"><h3 class="font-serif text-2xl font-bold">À propos</h3><p class="text-xs text-sage-600 font-light mt-1">Ma démarche et mes principes.</p></div>
+      <button onclick="go('about')" class="md:col-span-2 text-left rounded-3xl overflow-hidden relative min-h-[300px] bg-sage-100 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all zoom">
+        <img src="./MaPhoto1.jpeg" alt="Homam Dany" data-f="MaPhoto1.jpeg" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 20%" onerror="this.style.display='none'" />
+        <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-sage-950/85 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 p-6 text-white"><h3 class="font-serif text-2xl font-bold">À propos</h3><p class="text-xs text-sage-100 font-light mt-1">Ma démarche et mes principes →</p></div>
       </button>
-      <button onclick="go('skills')" class="md:col-span-2 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
-        <h3 class="font-serif text-2xl font-bold">Compétences</h3><p class="text-sm text-sage-600 font-light mt-2">Spark, PyTorch, SQL et NoSQL, Docker, APIs REST.</p><span class="text-xs font-semibold mt-4 block">Voir la stack →</span>
+      <button onclick="go('skills')" class="md:col-span-2 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between">
+        <div><h3 class="font-serif text-2xl font-bold">Compétences</h3><p class="text-sm text-sage-600 font-light mt-2">Spark, PyTorch, SQL et NoSQL, Docker, APIs REST.</p></div><span class="text-xs font-semibold mt-4 block">Voir la stack →</span>
       </button>
       <button onclick="go('parcours')" class="md:col-span-6 text-left rounded-3xl p-6 bg-sage-100/70 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-wrap items-center justify-between gap-3">
         <div><h3 class="font-serif text-2xl font-bold">Parcours universitaire</h3><p class="text-sm text-sage-700 font-light mt-1">DEUST MIP, Licence IDAI puis Master IDIA : trois cycles à la FST Tanger.</p></div><span class="text-xs font-semibold">Voir la chronologie →</span>
