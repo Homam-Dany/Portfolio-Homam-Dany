@@ -72,7 +72,7 @@ tailwind.config = { theme: { extend: {
   <section class="relative max-w-6xl mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 z-10">
     <div class="bg-white rounded-3xl border border-sage-200/80 shadow-xl p-6 sm:p-9 grid md:grid-cols-12 gap-8 items-center">
       <div class="md:col-span-7">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-200 text-xs font-medium text-sage-800 mb-4"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>Disponible pour un stage PFE ou un poste junior en 2026–2027</span>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-200 text-xs font-medium text-sage-800 mb-4"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>Disponible pour un stage PFE ou un poste junior en 2027–2028</span>
         <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-[1.05]">Homam Dany</h1>
         <p class="mt-2 text-sage-600 font-medium">Élève-ingénieur en Ingénierie des Données & Intelligence Artificielle — FST Tanger</p>
         <div class="mt-6 flex flex-wrap gap-3">
@@ -119,10 +119,17 @@ tailwind.config = { theme: { extend: {
         </div>
         <div class="relative flex flex-wrap gap-2 mt-auto pt-6"><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Node.js</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">MongoDB</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">RAG</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">OpenAI</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Angular</span></div>
       </button>
-      <button onclick="go('about')" class="md:col-span-2 text-left rounded-3xl overflow-hidden relative min-h-[300px] bg-sage-100 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all zoom">
-        <img src="./MaPhoto1.jpeg" alt="Homam Dany" data-f="MaPhoto1.jpeg" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 20%" onerror="this.style.display='none'" />
-        <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-sage-950/85 to-transparent pointer-events-none"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-white"><h3 class="font-serif text-2xl font-bold">À propos</h3><p class="text-xs text-sage-100 font-light mt-1">Ma démarche et mes principes →</p></div>
+      <button onclick="go('about')" class="md:col-span-2 text-left rounded-3xl p-6 bg-sage-100/70 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between">
+        <div>
+          <h3 class="font-serif text-2xl font-bold">À propos</h3>
+          <p class="text-sm text-sage-700 font-light mt-2">Ma démarche d'ingénieur, en trois principes.</p>
+          <ul class="mt-4 space-y-2.5 text-sm text-sage-800">
+            <li class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-full bg-white text-sage-700 text-xs font-bold flex items-center justify-center">✓</span>Rigueur formelle</li>
+            <li class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-full bg-white text-sage-700 text-xs font-bold flex items-center justify-center">✓</span>Culture produit</li>
+            <li class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-full bg-white text-sage-700 text-xs font-bold flex items-center justify-center">✓</span>Veille active (LLMs, RAG, Big Data)</li>
+          </ul>
+        </div>
+        <span class="text-xs font-semibold mt-5 block">Me découvrir →</span>
       </button>
       <button onclick="go('skills')" class="md:col-span-2 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between">
         <div><h3 class="font-serif text-2xl font-bold">Compétences</h3><p class="text-sm text-sage-600 font-light mt-2">Spark, PyTorch, SQL et NoSQL, Docker, APIs REST.</p></div><span class="text-xs font-semibold mt-4 block">Voir la stack →</span>
@@ -367,32 +374,72 @@ function renderParcours(){
     ${p.tags.length?`<div class="mt-5"><span class="text-xs font-semibold text-sage-500 block mb-2.5">Savoir-faire & modules majeurs</span><div class="flex flex-wrap gap-2">${p.tags.map(t=>chip(t)).join('')}</div></div>`:''}
     ${p.link?`<div class="mt-5 pt-4 border-t border-sage-100 flex flex-wrap justify-between gap-2 text-xs text-sage-600"><span class="font-medium">Réalisations associées :</span><span class="font-bold text-sage-900">${p.link}</span></div>`:''}
    </div></div>`).join('')}</div>
- ${banner([['pin','FST Tanger','Université Abdelmalek Essaâdi'],['bolt','Continuité du cursus','DEUST MIP → Licence → Master'],['check','Objectif PFE','Stage de fin d\'études 2026–2027']])}</div>`;
+ ${banner([['pin','FST Tanger','Université Abdelmalek Essaâdi'],['bolt','Continuité du cursus','DEUST MIP → Licence → Master'],['check','Objectif PFE','Stage de fin d\'études 2027–2028']])}</div>`;
 }
 
+const FORM_EMAIL = 'homamdany@gmail.com'; /* adresse qui reçoit les messages du formulaire */
+
 function renderContact(){
+ const field='w-full px-4 py-3 rounded-xl border border-sage-200 bg-sage-50/50 text-sm text-sage-900 placeholder-sage-400 focus:bg-white focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-200 transition';
  $('view-contact').innerHTML = `<div class="max-w-6xl mx-auto">
- ${head('Contact & opportunités','Construisons vos projets Data & IA','À la recherche d\'un <strong>stage de fin d\'études (PFE)</strong> ou d\'un poste junior. Parlons d\'architectures de données, de modèles prédictifs ou de solutions RAG.')}
+ ${head('Contact & opportunités','Construisons vos projets Data & IA','À la recherche d\'un <strong>stage de fin d\'études (PFE) 2027–2028</strong> ou d\'un poste junior. Écrivez-moi : je reçois chaque message directement par email.')}
  <div class="grid lg:grid-cols-12 gap-8">
-  <div class="lg:col-span-5 bg-sage-950 text-white rounded-3xl p-8 sm:p-10 border border-sage-800 shadow-2xl relative overflow-hidden flex flex-col justify-between">
-   <div class="absolute -top-24 -right-24 w-60 h-60 bg-sage-700/25 rounded-full blur-3xl"></div><div class="absolute -bottom-24 -left-24 w-60 h-60 bg-sage-500/15 rounded-full blur-3xl"></div>
+  <div class="lg:col-span-4 bg-sage-950 text-white rounded-3xl p-8 border border-sage-800 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+   <div class="absolute -top-24 -right-24 w-60 h-60 bg-sage-700/25 rounded-full blur-3xl"></div>
    <div class="relative">
-    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-900/90 border border-sage-700/70 text-sage-200 text-xs mb-6"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Disponible : stage PFE / junior 2026–2027</span>
-    <h3 class="font-serif text-3xl font-bold">Homam Dany</h3><p class="text-sage-300 text-sm font-light mt-2 mb-6">Élève-ingénieur en Master IDIA à la FST Tanger.</p>
+    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-900/90 border border-sage-700/70 text-sage-200 text-xs mb-6"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Stage PFE 2027–2028 / junior</span>
+    <h3 class="font-serif text-3xl font-bold">Homam Dany</h3><p class="text-sage-300 text-sm font-light mt-2 mb-6">Élève-ingénieur en Master IDIA, FST Tanger.</p>
     <div class="space-y-4 pt-6 border-t border-sage-800/80 text-sm text-sage-200">
      <p><strong class="text-white block font-medium">Localisation</strong>Tanger, Maroc (mobilité nationale et internationale)</p>
-     <p><strong class="text-white block font-medium">Contrat recherché</strong>Stage PFE / poste junior</p>
-     <p><strong class="text-white block font-medium">Domaines</strong>Data engineering, Big Data, RAG & LLMs, backend</p></div></div>
+     <p><strong class="text-white block font-medium">Domaines</strong>Data engineering, Big Data, RAG & LLMs, backend</p>
+     <p><strong class="text-white block font-medium">Accueil</strong>Présentiel, hybride ou remote</p></div></div>
    <div class="relative pt-8 space-y-3">
-    <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-4 rounded-2xl bg-white text-sage-950 font-bold text-sm shadow-glow hover:bg-sage-100 transition">Télécharger mon CV (PDF)</a>
-    <a href="https://wa.me/212668132968" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-3.5 rounded-2xl bg-sage-900/90 hover:bg-sage-800 border border-sage-700/80 text-white font-semibold text-xs transition">Échanger sur WhatsApp</a></div>
+    <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-3.5 rounded-2xl bg-white text-sage-950 font-bold text-sm hover:bg-sage-100 transition">Télécharger mon CV (PDF)</a>
+    <a href="https://wa.me/212668132968" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-3 rounded-2xl bg-sage-900/90 hover:bg-sage-800 border border-sage-700/80 text-white font-semibold text-xs transition">Échanger sur WhatsApp</a></div>
   </div>
-  <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">${CONTACTS.map(c=>`
-   <a href="${c[2]}" ${c[2].startsWith('http')?'target="_blank" rel="noopener"':''} class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:border-sage-400 transition-all flex flex-col justify-between">
-    <div><span class="text-xs font-semibold text-sage-500">${c[0]}</span><p class="font-semibold text-sage-900 break-all mt-1">${c[1]}</p><p class="text-xs text-sage-600 font-light mt-2">${c[3]}</p></div>
-    <span class="mt-5 pt-4 border-t border-sage-100 text-xs font-bold group-hover:text-sage-500 transition">${c[4]} ↗</span></a>`).join('')}</div>
+
+  <form id="contactForm" onsubmit="sendForm(event)" novalidate class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-9 border border-sage-200/80 shadow-card">
+   <h3 class="font-serif text-2xl sm:text-3xl font-bold">Envoyer un message</h3>
+   <p class="text-sm text-sage-600 font-light mt-1 mb-6">Tous les champs sont obligatoires. Je réponds sous 24 h ouvrées.</p>
+   <div class="grid sm:grid-cols-2 gap-4">
+    <div><label for="f-name" class="block text-xs font-semibold mb-1.5">Nom complet</label><input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Votre nom" class="${field}" /></div>
+    <div><label for="f-email" class="block text-xs font-semibold mb-1.5">Votre email</label><input id="f-email" name="email" type="email" required autocomplete="email" placeholder="vous@entreprise.com" class="${field}" /></div>
+   </div>
+   <div class="mt-4"><label for="f-subject" class="block text-xs font-semibold mb-1.5">Objet</label>
+    <select id="f-subject" name="subject" required class="${field}"><option>Proposition de stage PFE</option><option>Offre d'emploi junior</option><option>Collaboration sur un projet</option><option>Autre demande</option></select></div>
+   <div class="mt-4"><label for="f-message" class="block text-xs font-semibold mb-1.5">Message</label><textarea id="f-message" name="message" required rows="6" minlength="10" placeholder="Présentez votre besoin, votre entreprise et vos délais…" class="${field} resize-y"></textarea></div>
+   <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+   <div class="mt-6 flex flex-wrap items-center gap-4">
+    <button id="sendBtn" type="submit" class="px-7 py-3.5 rounded-full bg-sage-900 text-white font-semibold text-sm hover:bg-sage-700 hover:shadow-glow transition disabled:opacity-60 disabled:cursor-wait">Envoyer le message</button>
+    <p id="formStatus" role="status" aria-live="polite" class="text-sm"></p>
+   </div>
+  </form>
  </div>
+
+ <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">${CONTACTS.map(c=>`
+  <a href="${c[2]}" ${c[2].startsWith('http')?'target="_blank" rel="noopener"':''} class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+   <div><span class="text-xs font-semibold text-sage-500">${c[0]}</span><p class="font-semibold text-sage-900 break-all mt-1 text-sm">${c[1]}</p></div>
+   <span class="mt-5 pt-4 border-t border-sage-100 text-xs font-bold group-hover:text-sage-500 transition">${c[4]} ↗</span></a>`).join('')}</div>
  ${banner([['bolt','Réactivité assurée','Réponse sous 24h ouvrées'],['check','Convention académique','FST Tanger prête à signature'],['pin','Flexibilité d\'accueil','Présentiel, hybride ou remote']])}</div>`;
+}
+
+/* Envoi réel par email (service FormSubmit, sans serveur) */
+async function sendForm(e){
+ e.preventDefault();
+ const f=e.target, st=$('formStatus'), btn=$('sendBtn'), d=Object.fromEntries(new FormData(f));
+ const show=(msg,ok)=>{ st.textContent=msg; st.className='text-sm font-medium '+(ok?'text-emerald-700':'text-red-700'); };
+ if(d._honey) return; /* anti-spam : champ invisible rempli par les robots */
+ if(!d.name.trim()||!/^\S+@\S+\.\S+$/.test(d.email)||d.message.trim().length<10){ show('Vérifiez votre nom, votre email et votre message (10 caractères minimum).',false); return; }
+ btn.disabled=true; btn.textContent='Envoi en cours…'; show('',true);
+ try{
+  const r=await fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{ method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+   body:JSON.stringify({ name:d.name, email:d.email, subject:d.subject, message:d.message, _subject:'Portfolio — '+d.subject+' ('+d.name+')', _template:'table', _captcha:'false' }) });
+  const j=await r.json();
+  if(r.ok && (j.success===true||j.success==='true')){ f.reset(); show('Message envoyé. Merci, je vous réponds très vite.',true); }
+  else throw new Error(j.message||'Échec');
+ }catch(err){
+  st.innerHTML='L\'envoi a échoué. Écrivez-moi directement à <a class="underline" href="mailto:'+FORM_EMAIL+'">'+FORM_EMAIL+'</a>.'; st.className='text-sm font-medium text-red-700';
+ }finally{ btn.disabled=false; btn.textContent='Envoyer le message'; }
 }
 
 /* ===================== NAVIGATION ===================== */
@@ -416,7 +463,7 @@ $('homeGallery').innerHTML = PROJECTS.slice(1).map(p=>`<button onclick="go('proj
 
 const STACK = ['Python','SQL','Apache Spark','Docker','Linux','PyTorch','MongoDB','PostgreSQL','Node.js','Airflow','RAG','C++14','Hadoop','Neo4j'];
 $('marquee').innerHTML = [...STACK,...STACK].map(t=>`<span class="px-8 whitespace-nowrap">${t}<span class="text-sage-300 ml-16">•</span></span>`).join('');
-$('yr').textContent = new Date().getFullYear();
+$('yr').textContent = '2027';
 
 renderExperience(); renderProjects(); renderAbout(); renderSkills(); renderParcours(); renderContact();
 go(location.hash.slice(1)||'home');
