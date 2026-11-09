@@ -219,18 +219,17 @@
     <!-- ======================================================== -->
     <div id="view-home" class="portfolio-view animate-fadeIn pb-20">
       
-      <!-- 1. PHOTO DE COUVERTURE : PLEINE LARGEUR EN TÊTE -->
-      <section class="w-full relative overflow-hidden bg-sage-950">
-        <div class="w-full relative">
-          <img src="./Couverture.png" alt="Couverture Homam Dany — Ingénierie des Données & Intelligence Artificielle"
-            class="w-full h-auto max-h-[75vh] object-cover object-center block" />
-          <div class="absolute inset-0 bg-gradient-to-t from-sage-950/60 via-transparent to-transparent pointer-events-none"></div>
-        </div>
-      </section>
+      <!-- 1. PHOTO DE COUVERTURE : AFFICHÉE EN ENTIER, SANS RECADRAGE -->
+<section class="w-full bg-sage-950">
+  <img src="./Couverture.png"
+       alt="Couverture Homam Dany — Ingénierie des Données & Intelligence Artificielle"
+       class="w-full h-auto block mx-auto"
+       style="max-height: none; object-fit: contain;" />
+</section>
 
-      <!-- 2. PRÉSENTATION & VISION D'INGÉNIEUR (SANS REDONDANCE) -->
-      <section class="relative z-10 -mt-10 sm:-mt-14 md:-mt-16 max-w-5xl mx-auto px-4 sm:px-6 mb-16">
-        <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-10 md:p-12 border border-sage-200/80 shadow-xl">
+<!-- 2. PRÉSENTATION & VISION D'INGÉNIEUR -->
+<section class="relative z-10 mt-8 sm:mt-10 max-w-5xl mx-auto px-4 sm:px-6 mb-16">
+  <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-10 md:p-12 border border-sage-200/80 shadow-xl">
           
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-sage-100">
             <div>
