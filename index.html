@@ -7,6 +7,7 @@
 <title>Homam Dany | Ingénierie des Données & Intelligence Artificielle</title>
 <meta name="description" content="Portfolio de Homam Dany — Master Ingénierie des Données et IA (IDIA), FST Tanger. Pipelines de données, Big Data, Machine Learning & RAG." />
 <meta property="og:title" content="Homam Dany — Ingénierie des Données & IA" />
+<meta property="og:type" content="website" />
 <meta property="og:image" content="./Couverture.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,60 +17,63 @@
 tailwind.config = { theme: { extend: {
   fontFamily: { sans: ['Outfit','sans-serif'], serif: ['"Cormorant Garamond"','serif'] },
   colors: { sage: { 50:'#f4f9f9',100:'#e0f2f1',200:'#a2d2c6',300:'#85c2b3',400:'#6fb0a6',500:'#5f9ea0',600:'#4f8a8c',700:'#4a7d7e',800:'#385e5e',900:'#2f4f4f',950:'#1b3030' } },
-  boxShadow: { card:'0 0 0 1px rgba(47,79,79,.08),0 16px 40px -16px rgba(47,79,79,.14)', hover:'0 0 0 1px rgba(95,158,160,.4),0 28px 50px -18px rgba(47,79,79,.25)' }
+  boxShadow: { card:'0 0 0 1px rgba(47,79,79,.08),0 16px 40px -16px rgba(47,79,79,.14)', hover:'0 0 0 1px rgba(95,158,160,.4),0 28px 50px -18px rgba(47,79,79,.25)', glow:'0 0 0 1px rgba(162,210,198,.4),0 20px 60px -25px rgba(95,158,160,.6)' }
 }}}
 </script>
 <style>
   body{background:#f8fbfb;color:#2f4f4f;text-rendering:geometricPrecision}
-  .view{animation:in .35s ease-out both} @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  .marquee{display:flex;width:max-content;animation:slide 38s linear infinite}
-  .marquee:hover{animation-play-state:paused}
+  .bg-dots{background-image:radial-gradient(rgba(95,158,160,.18) 1px,transparent 1px);background-size:22px 22px}
+  .view{animation:in .35s ease-out both}@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .marquee{display:flex;width:max-content;animation:slide 38s linear infinite}.marquee:hover{animation-play-state:paused}
   @keyframes slide{to{transform:translateX(-50%)}}
-  .hero-in{animation:hero 1s cubic-bezier(.16,1,.3,1) both} @keyframes hero{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
-  ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:#a2d2c6;border-radius:4px}
+  .hero-in{animation:hero 1s cubic-bezier(.16,1,.3,1) both}@keyframes hero{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+  .zoom img{transition:transform .6s cubic-bezier(.16,1,.3,1)}.zoom:hover img{transform:scale(1.05)}
+  ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f4f9f9}::-webkit-scrollbar-thumb{background:#a2d2c6;border-radius:4px}
   a:focus-visible,button:focus-visible{outline:2px solid #5f9ea0;outline-offset:3px}
-  @media (prefers-reduced-motion:reduce){.marquee,.hero-in,.view{animation:none}}
+  @media (prefers-reduced-motion:reduce){.marquee,.hero-in,.view{animation:none}.zoom img{transition:none}}
 </style>
 </head>
 
 <body class="font-sans antialiased selection:bg-sage-200 min-h-screen flex flex-col">
 
-<!-- MENU -->
+<!-- ============ MENU ============ -->
 <header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-sage-200/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
     <button onclick="go('home')" class="font-serif text-2xl font-bold text-sage-900 hover:text-sage-500 transition-colors">Homam Dany<span class="text-sage-500">.</span></button>
     <nav id="nav" class="hidden lg:flex items-center gap-1 p-1.5 bg-sage-50 rounded-full border border-sage-200/70"></nav>
     <div class="hidden sm:flex items-center gap-3">
       <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-xs font-semibold"><span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>Master IDIA</span>
-      <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-sage-900 text-white text-xs font-semibold hover:bg-sage-700 transition">Télécharger CV</a>
+      <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-sage-900 text-white text-xs font-semibold hover:bg-sage-700 hover:shadow-glow transition">Télécharger CV</a>
     </div>
     <button id="menuBtn" class="lg:hidden w-11 h-11 rounded-xl border border-sage-200 bg-white flex items-center justify-center" aria-label="Ouvrir le menu" aria-expanded="false">
-      <svg id="menuIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
   </div>
-  <div id="mobilePanel" class="hidden lg:hidden border-t border-sage-200 bg-white px-6 py-4"><div id="mnav" class="grid gap-1.5"></div></div>
+  <div id="mobilePanel" class="hidden lg:hidden border-t border-sage-200 bg-white px-6 py-4">
+    <div id="mnav" class="grid gap-1.5"></div>
+    <div class="pt-3 mt-3 border-t border-sage-100 flex items-center justify-between"><span class="text-xs text-sage-600">Tanger, Maroc • Stage / Junior</span><a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="px-5 py-2 rounded-full bg-sage-900 text-white text-xs font-semibold">CV</a></div>
+  </div>
 </header>
 
 <main class="flex-1 pt-20">
 
-<!-- ================= ACCUEIL ================= -->
-<div id="view-home" class="view pb-20">
+<!-- ============ ACCUEIL ============ -->
+<div id="view-home" class="view pb-20 relative">
+  <div class="absolute inset-x-0 top-0 h-[700px] bg-dots opacity-60 pointer-events-none" style="mask-image:linear-gradient(#000,transparent)"></div>
 
-  <!-- Couverture : image entière, sans recadrage -->
-  <section class="max-w-[1500px] mx-auto px-3 sm:px-6 pt-4 sm:pt-6">
+  <!-- Couverture entière, sans recadrage -->
+  <section class="relative max-w-[1500px] mx-auto px-3 sm:px-6 pt-4 sm:pt-6">
     <div class="rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden bg-sage-950 shadow-2xl ring-1 ring-sage-900/10">
       <img src="./Couverture.png" alt="Couverture Homam Dany — Ingénierie des Données & Intelligence Artificielle" class="hero-in w-full h-auto block" />
     </div>
   </section>
 
   <!-- Carte d'identité -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 relative z-10">
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 z-10">
     <div class="bg-white rounded-3xl border border-sage-200/80 shadow-xl p-6 sm:p-9 grid md:grid-cols-12 gap-8 items-center">
       <div class="md:col-span-7">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-200 text-xs font-medium text-sage-800 mb-4">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>Disponible pour un stage PFE ou un poste junior en 2026–2027
-        </span>
-        <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-[1.05] text-sage-900">Homam Dany</h1>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-50 border border-sage-200 text-xs font-medium text-sage-800 mb-4"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>Disponible pour un stage PFE ou un poste junior en 2026–2027</span>
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-[1.05]">Homam Dany</h1>
         <p class="mt-2 text-sage-600 font-medium">Élève-ingénieur en Ingénierie des Données & Intelligence Artificielle — FST Tanger</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-sage-900 text-white font-semibold text-sm hover:bg-sage-700 transition shadow-md">Consulter mon CV</a>
@@ -84,90 +88,77 @@ tailwind.config = { theme: { extend: {
     </div>
   </section>
 
-  <!-- Chiffres clés -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-10">
+  <!-- Chiffres -->
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-10">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-sage-200/70 rounded-3xl overflow-hidden border border-sage-200/70">
       <div class="bg-white p-6 text-center"><p class="font-serif text-4xl font-bold">2</p><p class="text-xs text-sage-600 mt-1">expériences chez SAT</p></div>
       <div class="bg-white p-6 text-center"><p class="font-serif text-4xl font-bold">5</p><p class="text-xs text-sage-600 mt-1">projets documentés</p></div>
-      <div class="bg-white p-6 text-center"><p class="font-serif text-4xl font-bold">3</p><p class="text-xs text-sage-600 mt-1">années à la FST Tanger</p></div>
+      <div class="bg-white p-6 text-center"><p class="font-serif text-4xl font-bold">3</p><p class="text-xs text-sage-600 mt-1">cycles à la FST Tanger</p></div>
       <div class="bg-white p-6 text-center"><p class="font-serif text-4xl font-bold">3</p><p class="text-xs text-sage-600 mt-1">langues : AR, FR, EN</p></div>
     </div>
   </section>
 
-  <!-- Chapitres -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
-    <div class="mb-8">
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold">Explorer le portfolio</h2>
-      <p class="text-sage-600 text-sm mt-1">Chaque carte ouvre une section détaillée.</p>
-    </div>
+  <!-- Chapitres (avec images) -->
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="mb-8"><h2 class="font-serif text-3xl sm:text-4xl font-bold">Explorer le portfolio</h2><p class="text-sage-600 text-sm mt-1">Chaque carte ouvre une section détaillée.</p></div>
     <div class="grid md:grid-cols-6 gap-5">
-      <button onclick="go('experience')" class="md:col-span-4 md:row-span-2 text-left rounded-3xl p-8 bg-sage-900 text-white shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[300px] relative overflow-hidden">
+      <button onclick="go('experience')" class="md:col-span-4 md:row-span-2 text-left rounded-3xl p-8 bg-sage-900 text-white shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[320px] relative overflow-hidden">
         <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-sage-700/30 blur-3xl"></div>
         <div class="relative">
+          <div class="w-16 h-16 rounded-2xl bg-white p-2 flex items-center justify-center overflow-hidden mb-5"><img src="./SAT.png" alt="SAT" data-f="SAT.png" class="w-full h-full object-contain" onerror="this.replaceWith(document.createTextNode('SAT'))" /></div>
           <span class="text-xs text-sage-300 font-medium">Expériences en entreprise</span>
-          <h3 class="font-serif text-3xl sm:text-4xl font-bold mt-2 leading-tight">Smart Automation Technologies</h3>
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold mt-1 leading-tight">Smart Automation Technologies</h3>
           <p class="mt-4 text-sage-200 font-light max-w-lg leading-relaxed">Backend pour deux marketplaces (SOSAUTO et OmniLog), assistant conversationnel RAG avec l'API OpenAI et recherche sémantique.</p>
         </div>
-        <div class="relative flex flex-wrap gap-2 mt-6">
-          <span class="px-3 py-1 rounded-full bg-white/10 text-xs">Node.js</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">MongoDB</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">RAG</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">OpenAI</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Angular</span>
-        </div>
+        <div class="relative flex flex-wrap gap-2 mt-6"><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Node.js</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">MongoDB</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">RAG</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">OpenAI</span><span class="px-3 py-1 rounded-full bg-white/10 text-xs">Angular</span></div>
       </button>
-      <button onclick="go('projects')" class="md:col-span-2 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
-        <h3 class="font-serif text-2xl font-bold">Projets</h3>
-        <p class="text-sm text-sage-600 font-light mt-2">Simulation 3D en C++, supervision de data center, e-commerce, mobile.</p>
-        <span class="text-xs font-semibold mt-4 block">Voir les 5 projets →</span>
+      <button onclick="go('about')" class="md:col-span-2 text-left rounded-3xl overflow-hidden bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all zoom">
+        <div class="h-40 bg-sage-100 overflow-hidden"><img src="./MaPhoto1.jpeg" alt="Homam Dany" data-f="MaPhoto1.jpeg" class="w-full h-full object-cover object-top" onerror="this.style.display='none'" /></div>
+        <div class="p-5"><h3 class="font-serif text-2xl font-bold">À propos</h3><p class="text-xs text-sage-600 font-light mt-1">Ma démarche et mes principes.</p></div>
       </button>
       <button onclick="go('skills')" class="md:col-span-2 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
-        <h3 class="font-serif text-2xl font-bold">Compétences</h3>
-        <p class="text-sm text-sage-600 font-light mt-2">Spark, PyTorch, SQL et NoSQL, Docker, APIs REST.</p>
-        <span class="text-xs font-semibold mt-4 block">Voir la stack →</span>
+        <h3 class="font-serif text-2xl font-bold">Compétences</h3><p class="text-sm text-sage-600 font-light mt-2">Spark, PyTorch, SQL et NoSQL, Docker, APIs REST.</p><span class="text-xs font-semibold mt-4 block">Voir la stack →</span>
       </button>
-      <button onclick="go('parcours')" class="md:col-span-3 text-left rounded-3xl p-6 bg-sage-100/70 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
-        <h3 class="font-serif text-2xl font-bold">Parcours</h3>
-        <p class="text-sm text-sage-700 font-light mt-2">DEUST MIP, Licence IDAI puis Master IDIA : trois cycles à la FST Tanger.</p>
-        <span class="text-xs font-semibold mt-4 block">Voir la chronologie →</span>
-      </button>
-      <button onclick="go('about')" class="md:col-span-3 text-left rounded-3xl p-6 bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
-        <h3 class="font-serif text-2xl font-bold">À propos</h3>
-        <p class="text-sm text-sage-600 font-light mt-2">Ma démarche : rigueur de conception, sens du produit, veille continue.</p>
-        <span class="text-xs font-semibold mt-4 block">Me découvrir →</span>
+      <button onclick="go('parcours')" class="md:col-span-6 text-left rounded-3xl p-6 bg-sage-100/70 border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all flex flex-wrap items-center justify-between gap-3">
+        <div><h3 class="font-serif text-2xl font-bold">Parcours universitaire</h3><p class="text-sm text-sage-700 font-light mt-1">DEUST MIP, Licence IDAI puis Master IDIA : trois cycles à la FST Tanger.</p></div><span class="text-xs font-semibold">Voir la chronologie →</span>
       </button>
     </div>
   </section>
 
-  <!-- Projet phare -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
-    <div class="grid md:grid-cols-2 rounded-3xl overflow-hidden bg-white border border-sage-200/80 shadow-card">
-      <div class="bg-sage-950 min-h-[260px]"><img src="./traffic.jpg" alt="TrafficCore Simulator 3D" class="w-full h-full object-cover" onerror="this.style.display='none'" /></div>
+  <!-- Galerie projets (images) -->
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-8">
+      <div><h2 class="font-serif text-3xl sm:text-4xl font-bold">Réalisations</h2><p class="text-sage-600 text-sm mt-1">Cinq projets, du moteur 3D en C++ à l'e-commerce.</p></div>
+      <button onclick="go('projects')" class="px-5 py-2.5 rounded-full border border-sage-300 text-xs font-bold hover:bg-sage-50 transition">Tous les projets →</button>
+    </div>
+    <div class="grid md:grid-cols-2 rounded-3xl overflow-hidden bg-white border border-sage-200/80 shadow-card zoom mb-5">
+      <div class="bg-sage-950 min-h-[280px] overflow-hidden"><img src="./traffic.jpg" alt="TrafficCore Simulator 3D" data-f="traffic.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'" /></div>
       <div class="p-8 sm:p-10 flex flex-col justify-center">
-        <span class="text-xs font-semibold text-sage-500">Projet phare</span>
+        <span class="text-xs font-semibold text-sage-500">Projet phare • C++14 • Raylib</span>
         <h3 class="font-serif text-3xl font-bold mt-1">TrafficCore Simulator 3D</h3>
-        <p class="text-sage-700 font-light text-sm leading-relaxed mt-3">Moteur de simulation de trafic urbain écrit en C++14, rendu 3D temps réel avec Raylib. Le réseau routier est modélisé en graphe orienté pondéré, avec anticipation des collisions et gestion des priorités aux carrefours.</p>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <a href="https://github.com/Houssam-Elh/TrafficCore" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-sage-900 text-white text-xs font-bold hover:bg-sage-700 transition">Code source ↗</a>
-          <button onclick="go('projects')" class="px-5 py-2.5 rounded-full border border-sage-300 text-xs font-bold hover:bg-sage-50 transition">Tous les projets</button>
-        </div>
+        <p class="text-sage-700 font-light text-sm leading-relaxed mt-3">Simulation de trafic urbain avec rendu 3D temps réel. Le réseau routier est un graphe orienté pondéré, avec anticipation des collisions et priorités aux carrefours.</p>
+        <a href="https://github.com/Houssam-Elh/TrafficCore" target="_blank" rel="noopener" class="mt-5 self-start px-5 py-2.5 rounded-full bg-sage-900 text-white text-xs font-bold hover:bg-sage-700 transition">Code source ↗</a>
       </div>
     </div>
+    <div id="homeGallery" class="grid grid-cols-2 lg:grid-cols-4 gap-5"></div>
   </section>
 
-  <!-- Stack défilante -->
-  <section class="mt-16 overflow-hidden border-y border-sage-200/70 bg-white py-5" aria-label="Technologies">
-    <div class="marquee text-sage-800 font-serif text-2xl" id="marquee"></div>
-  </section>
+  <!-- Stack -->
+  <section class="relative mt-16 overflow-hidden border-y border-sage-200/70 bg-white py-5" aria-label="Technologies"><div class="marquee text-sage-800 font-serif text-2xl" id="marquee"></div></section>
 
   <!-- Méthode -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
-    <div class="rounded-3xl bg-sage-900 text-white p-8 sm:p-12 grid md:grid-cols-3 gap-8">
-      <div class="md:col-span-3"><h2 class="font-serif text-3xl sm:text-4xl font-bold max-w-xl">Une culture d'ingénierie tournée vers l'impact</h2></div>
-      <div><h3 class="font-serif text-xl font-bold">Rigueur et scalabilité</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Flux modélisés avec soin, intégrité relationnelle respectée, architectures prévues pour grandir avec les volumes.</p></div>
-      <div><h3 class="font-serif text-xl font-bold">Pragmatisme de l'IA</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Un modèle n'entre dans le produit que s'il apporte un gain mesurable, évalué en continu.</p></div>
-      <div><h3 class="font-serif text-xl font-bold">Qualité et sécurité</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Code lisible, services isolés dans des conteneurs Docker, authentification sécurisée.</p></div>
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="rounded-3xl bg-sage-900 text-white p-8 sm:p-12 grid md:grid-cols-3 gap-8 relative overflow-hidden">
+      <div class="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-sage-500/20 blur-3xl"></div>
+      <div class="md:col-span-3 relative"><h2 class="font-serif text-3xl sm:text-4xl font-bold max-w-xl">Une culture d'ingénierie tournée vers l'impact</h2></div>
+      <div class="relative p-5 rounded-2xl bg-sage-800/70 border border-sage-700/60"><h3 class="font-serif text-xl font-bold">Rigueur et scalabilité</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Flux modélisés avec soin, intégrité relationnelle respectée, architectures prévues pour grandir avec les volumes.</p></div>
+      <div class="relative p-5 rounded-2xl bg-sage-800/70 border border-sage-700/60"><h3 class="font-serif text-xl font-bold">Pragmatisme de l'IA</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Un modèle n'entre dans le produit que s'il apporte un gain mesurable, évalué en continu.</p></div>
+      <div class="relative p-5 rounded-2xl bg-sage-800/70 border border-sage-700/60"><h3 class="font-serif text-xl font-bold">Qualité et sécurité</h3><p class="text-sm text-sage-200 font-light mt-2 leading-relaxed">Code lisible, services isolés dans des conteneurs Docker, authentification sécurisée.</p></div>
     </div>
   </section>
 
   <!-- Appel final -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-12">
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 mt-12">
     <div class="rounded-3xl bg-white border border-sage-200/80 shadow-card p-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div><h3 class="font-serif text-2xl sm:text-3xl font-bold">Un projet Data ou IA à construire ?</h3><p class="text-sm text-sage-600 font-light mt-1">Je cherche un stage PFE ou un poste d'ingénieur junior, au Maroc comme à l'international.</p></div>
       <div class="flex flex-wrap gap-3 justify-center">
@@ -178,7 +169,6 @@ tailwind.config = { theme: { extend: {
   </section>
 </div>
 
-<!-- Autres vues (générées par le script) -->
 <div id="view-experience" class="view hidden py-14 px-4 sm:px-6"></div>
 <div id="view-projects" class="view hidden py-14 px-4 sm:px-6"></div>
 <div id="view-about" class="view hidden py-14 px-4 sm:px-6"></div>
@@ -193,193 +183,235 @@ tailwind.config = { theme: { extend: {
 </footer>
 
 <script>
-/* ===================== DONNÉES (à modifier ici) ===================== */
+/* ===================== DONNÉES (modifiables ici) ===================== */
 const VIEWS = [['home','Accueil'],['experience','Expériences'],['projects','Projets'],['about','À propos'],['skills','Compétences'],['parcours','Parcours'],['contact','Contact']];
 
 const EXPERIENCES = [
- { tag:'Backend & IA', date:'Juil. 2026 – Nov. 2026', title:'Stagiaire Développement Backend et IA — SOSAUTO', sub:'Marketplace automobile et pièces détachées',
-   tech:['Node.js','MongoDB','API REST','OpenAI','RAG'],
-   points:[['Backend & API REST','Contribution au backend et aux API de la marketplace.'],['Assistant conversationnel & RAG','Assistant basé sur l’API OpenAI et une architecture RAG connectée à MongoDB.'],['Recherche intelligente','Traitement des données pour contextualiser les réponses à partir des informations de la plateforme.']],
-   imgs:['sosauto-1.png','sosauto-2.png','sosauto-3.png'] },
- { tag:'Projet de Fin d\'Études', date:'Mars 2026 – Juin 2026', title:'Stagiaire Développement Logiciel, IA et Données — OmniLog', sub:'Marketplace B2B de véhicules et engins professionnels (BTP, industrie, agriculture)',
-   tech:['Node.js','Angular','Ionic','Recherche sémantique'],
-   points:[['Plateforme B2B','Backend et services applicatifs : annonces de vente et location, recherche, demandes de devis.'],['Recherche sémantique & IA','Intégration de la recherche sémantique pour mieux comprendre les requêtes et améliorer la pertinence.'],['Données & catalogue','Organisation, filtrage et optimisation des données de matériels professionnels.']],
-   imgs:['omnilog.jpeg','omnilog-2.png','omnilog-3.png'] }
+ { tag:'Backend & IA', date:'Juil. 2026 – Nov. 2026', title:'Stagiaire Développement Backend et IA — Projet SOSAUTO', sub:'Marketplace automobile et pièces détachées',
+   stack:['OpenAI API','RAG','Node.js','MongoDB'], env:['Node.js','MongoDB','API REST','OpenAI','RAG'],
+   points:[['Backend & API REST','Contribution au backend et aux API d’une marketplace automobile et pièces détachées.'],['Assistant conversationnel & RAG','Travail sur un assistant basé sur l’API OpenAI et une architecture RAG connectée à MongoDB.'],['Recherche intelligente & contextualisation','Traitement des données pour contextualiser les réponses à partir des informations de la plateforme.']],
+   shots:[['sosauto-1.png','Interface marketplace'],['sosauto-2.png','Assistant RAG & OpenAI'],['sosauto-3.png','Catalogue & pièces']] },
+ { tag:'Projet de Fin d\'Études (PFE)', date:'Mars 2026 – Juin 2026', title:'Stagiaire Développement Logiciel, IA et Données — Projet OmniLog', sub:'Marketplace B2B de véhicules et engins professionnels (BTP, industrie, agriculture)',
+   stack:['Recherche sémantique','IA & Données','Node.js','Angular'], env:['Node.js','Angular','Ionic','Recherche sémantique','IA & Données'],
+   points:[['Plateforme B2B complète','Backend et services applicatifs : annonces de vente et location, recherche et demandes de devis (BTP, industrie, agriculture).'],['Recherche sémantique & IA','Intégration de la recherche sémantique et de fonctionnalités d’IA pour améliorer la compréhension des requêtes et la pertinence.'],['Données & catalogue','Organisation, filtrage et optimisation des données complexes de matériels professionnels.']],
+   shots:[['omnilog.jpeg','OmniLog Marketplace'],['omnilog-2.png','Recherche sémantique'],['omnilog-3.png','Dashboard & gestion']] }
 ];
 
 const PROJECTS = [
- { cat:'simulation', big:true, title:'TrafficCore Simulator 3D', kind:'Algorithmique & graphes', img:'traffic.jpg', gh:'https://github.com/Houssam-Elh/TrafficCore',
-   desc:'Moteur de simulation de trafic urbain en C++14 avec rendu 3D temps réel (Raylib). Réseau routier modélisé en graphe orienté pondéré, anticipation des collisions, priorités aux carrefours.',
-   tags:['C++14','Raylib 3D','Théorie des graphes','IA comportementale'] },
- { cat:'systems', title:'DC-Manager Orchestrator', kind:'Systèmes & data center', img:'dc-manager.png', gh:'https://github.com/Homam-Dany/Application_Web_DataCenter',
-   desc:'Plateforme d\'allocation et de suivi des ressources d\'un data center : base en 3NF, contrôle d\'accès RBAC, audit logging, inventaire des baies, serveurs et switches.',
-   tags:['Laravel 10','MySQL 3NF','RBAC','Audit'] },
- { cat:'web', title:'Système de Gestion Scolaire', kind:'Web métier', img:'gestion-scolaire.png', gh:'https://github.com/Homam-Dany/Application_Web_Systeme_De_Gestion_Scolaire',
-   desc:'Portail pour l\'administration, les enseignants et les étudiants : notes, moyennes, bulletins, tableaux de bord et rapports.',
-   tags:['PHP & MySQL','MVC','Dashboards'] },
- { cat:'mobile', title:'Occasio — Recherche mobile', kind:'Mobile', img:'occasio.png', contain:true, gh:'https://github.com/Homam-Dany/Developpemenet_Mobile_Moteur-de-Recherche-Filtres-Avances',
-   desc:'Application Android native avec moteur de recherche à filtres multi-critères, réponse instantanée et cache pour une consultation hors ligne partielle.',
-   tags:['Android SDK','Java','Filtres avancés'] },
- { cat:'web', title:'OmniStore — Gestion de commandes', kind:'e-Commerce', img:'omnistore.png', gh:'https://github.com/Homam-Dany/Gestion_Commande_Client_Application_Web_OmniStore',
-   desc:'Application transactionnelle de commande, contrôle des stocks et facturation, avec intégrité SQL garantissant la cohérence des stocks.',
-   tags:['Full-stack','Transactions SQL','UI/UX'] }
+ { cat:'simulation', big:true, title:'TrafficCore Simulator 3D', kind:'Architecture & simulation', img:'traffic.jpg', badges:['Projet phare','C++14'], label:'Raylib 3D', gh:'https://github.com/Houssam-Elh/TrafficCore',
+   desc:'Moteur de simulation de trafic urbain développé from scratch en C++14, avec rendu 3D temps réel via Raylib. Le réseau routier est modélisé en graphe orienté pondéré avec calcul de flux et comportements véhiculaires.',
+   pts:['Théorie des graphes : intersections en nœuds, voies en arêtes pondérées par la vitesse et la densité.','IA des véhicules : anticipation et évitement de collisions, priorités aux carrefours.','Performance : mémoire optimisée et architecture orientée données pour un taux de rafraîchissement élevé.'],
+   tags:['C++14','Raylib 3D','Théorie des graphes','IA comportementale','Rendu temps réel'] },
+ { cat:'systems', title:'DC-Manager Orchestrator', kind:'Architecture & sécurité', img:'dc-manager.png', badges:['Laravel 10','3NF normalisé'], label:'Data Center', gh:'https://github.com/Homam-Dany/Application_Web_DataCenter',
+   desc:'Plateforme d\'orchestration pour l\'allocation et le suivi des ressources physiques et logiques d\'un data center.',
+   pts:['Base relationnelle modélisée en 3ème forme normale.','Contrôle d\'accès par rôles (RBAC) et audit logging.','Inventaire temps réel des baies, serveurs, switches et allocations réseau.'],
+   tags:['Laravel 10','MySQL 3NF','RBAC','Audit trail'] },
+ { cat:'web', title:'Système de Gestion Scolaire', kind:'Plateforme métier & analytics', img:'gestion-scolaire.png', badges:['Web App','Dashboard'], label:'Scolarité', gh:'https://github.com/Homam-Dany/Application_Web_Systeme_De_Gestion_Scolaire',
+   desc:'Portail web centralisé pour l\'administration, les enseignants et les étudiants, avec tableaux de bord analytiques.',
+   pts:['Gestion des notes, moyennes semestrielles et bulletins informatisés.','Espaces d\'authentification dédiés et tableaux de bord personnalisés.','Rapports et indicateurs visuels de suivi de scolarité.'],
+   tags:['PHP & MySQL','MVC','Dashboards','Reporting'] },
+ { cat:'mobile', title:'Occasio — Recherche mobile', kind:'Développement mobile & UX', img:'occasio.png', contain:true, badges:['Android'], label:'Mobile', gh:'https://github.com/Homam-Dany/Developpemenet_Mobile_Moteur-de-Recherche-Filtres-Avances',
+   desc:'Application Android native intégrant un moteur de recherche performant avec filtres avancés.',
+   pts:['Filtrage multi-critères dynamique avec réponse instantanée.','Architecture optimisée pour la réactivité et la sobriété des requêtes.','Cache pour une consultation hors ligne partielle.'],
+   tags:['Android SDK','Java','Filtres multi-critères','UI mobile'] },
+ { cat:'web', title:'OmniStore — Gestion de commandes', kind:'Transactions & gestion de flux', img:'omnistore.png', badges:['Full-stack'], label:'e-Commerce', gh:'https://github.com/Homam-Dany/Gestion_Commande_Client_Application_Web_OmniStore',
+   desc:'Application web transactionnelle de commande client, contrôle des stocks et facturation.',
+   pts:['Panier interactif, validation des étapes d\'achat et contrôle d\'inventaire.','Intégrité transactionnelle SQL : stocks cohérents en temps réel.','Interface réactive pour opérateurs et clients.'],
+   tags:['Full-stack web','Transactions SQL','Gestion de flux','UI/UX'] }
 ];
-const FILTERS = [['all','Tous (5)'],['simulation','Algorithmique (1)'],['systems','Systèmes (1)'],['web','Web (2)'],['mobile','Mobile (1)']];
+const FILTERS = [['all','Tous (5)'],['simulation','Algorithmique & graphes (1)'],['systems','Systèmes & data center (1)'],['web','Web métier & e-commerce (2)'],['mobile','Mobile (1)']];
 
+const IC = { bolt:'M13 10V3L4 14h7v7l9-11h-7z', code:'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4', check:'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', db:'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4', term:'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', pin:'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' };
+const ico = (k,c='w-6 h-6') => `<svg class="${c}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="${IC[k]}"/></svg>`;
+
+const PILLARS = [['bolt','Data & Big Data','Spark, PySpark, Hadoop, Airflow, ETL/ELT'],['term','IA, ML & RAG','PyTorch, Scikit-learn, OpenAI, recherche sémantique'],['db','Bases de données','PostgreSQL, MongoDB, Neo4j, 3NF, vectorielles'],['code','Backend & DevOps','Node.js, Python, Docker, Linux, REST, Git']];
 const SKILLS = [
- ['Ingénierie des données & Big Data','Pipelines ETL/ELT, ingestion de flux massifs, traitement distribué.',['Apache Spark & PySpark','Hadoop (HDFS)','Airflow','Pandas, NumPy','Power BI']],
- ['IA, Machine Learning & RAG','Modèles prédictifs, deep learning et IA générative augmentée.',['RAG & OpenAI','Recherche sémantique','PyTorch','Scikit-learn','Embeddings','NLP']],
- ['Bases de données','Modélisation relationnelle, NoSQL documentaire, graphes et stockage vectoriel.',['PostgreSQL & MySQL','Normalisation 3NF','MongoDB','Neo4j','Transactions ACID']],
- ['Backend & APIs','Services modulaires et APIs REST sécurisées.',['Node.js & Express','Python (FastAPI, Flask)','C / C++14','Java','REST & JWT','Angular, Ionic']],
- ['DevOps & conteneurisation','Environnements reproductibles et administration Linux.',['Docker & Compose','Linux','Bash','Git & GitHub','CI/CD']],
- ['Socle scientifique','Mathématiques et algorithmique pour comprendre les modèles.',['Algèbre linéaire','Théorie des graphes','Probabilités & statistiques','Optimisation']]
+ ['db','Ingénierie des données & Big Data','Pipelines ETL/ELT, ingestion de flux massifs et traitement distribué scalable.',['Apache Spark & PySpark','Hadoop (HDFS)','Pipelines ETL / ELT','Python (Pandas, NumPy)','Apache Airflow','Power BI'],'Traitement distribué','Scalabilité'],
+ ['term','IA, Machine Learning & RAG','Modélisation prédictive, deep learning et IA générative augmentée.',['Architectures RAG & OpenAI','Recherche sémantique','PyTorch & Deep Learning','Scikit-learn','Bases vectorielles','NLP & similarité cosinus'],'Appliqué en production chez SAT','SOSAUTO & OmniLog'],
+ ['db','Bases de données SQL & NoSQL','Modélisation rigoureuse, NoSQL documentaire, indexation et stockage vectoriel.',['PostgreSQL & MySQL','Normalisation 3NF','MongoDB','Neo4j','Indexation B-Tree','Transactions ACID'],'Relationnel, NoSQL & graphes','Intégrité 3NF'],
+ ['code','Développement backend & APIs','Services modulaires et APIs RESTful sécurisées.',['Node.js & Express','Python (FastAPI, Flask)','C++14 & C','Java & POO','APIs REST & JWT','Angular, Ionic'],'Services applicatifs','Sécurité JWT'],
+ ['term','Cloud, DevOps & conteneurisation','Environnements reproductibles, Linux et intégration continue.',['Docker & Compose','Linux','Bash / Shell','Git & GitHub Flow','CI/CD'],'Déploiement reproductible','Docker & Linux'],
+ ['check','Méthodologie & socle scientifique','Mathématiques fondamentales pour maîtriser les algorithmes.',['Algèbre linéaire','Théorie des graphes (Dijkstra)','Probabilités & statistiques','Optimisation','Documentation technique','Veille R&D'],'DEUST MIP & Master IDIA','FST Tanger']
 ];
 
 const PARCOURS = [
- { date:'2026 — 2028', state:'En cours', title:'Master — Ingénierie des Données et Intelligence Artificielle (IDIA)', place:'FST Tanger — Université Abdelmalek Essaâdi', desc:'Architectures de données distribuées, pipelines ETL/ELT, machine learning, deep learning, RAG et gouvernance des données.', tags:['Spark & Hadoop','Deep Learning & NLP','RAG & LLMs','Airflow','Data Lake'] },
- { date:'2025 — 2026', state:'Diplômé', title:'Licence — Ingénierie de Développement d\'Applications Informatiques (IDAI)', place:'FST Tanger — Université Abdelmalek Essaâdi', desc:'Génie logiciel, bases relationnelles en 3NF, sécurité applicative, développement web et mobile.', tags:['3NF','RBAC','MVC','Web & Mobile','Agile'] },
- { date:'2022 — 2025', state:'Socle scientifique', title:'DEUST — Mathématiques, Informatique, Physique (MIP)', place:'FST Tanger — Université Abdelmalek Essaâdi', desc:'Calcul matriciel, algèbre linéaire, probabilités, statistiques et programmation en C/C++.', tags:['Algèbre linéaire','Probabilités','Algorithmique C/C++','Graphes'] },
- { date:'2021 — 2022', state:'Taroudant', title:'Baccalauréat — Sciences Physiques et Chimiques (option Français)', place:'Lycée Qualifiant Abdallah Chefchaouni — Oulad Teima', desc:'Formation scientifique initiale : raisonnement déductif et goût de la formalisation.', tags:[] }
+ { date:'En cours • 2026 — 2028', state:'Master d\'excellence', title:'Master — Ingénierie des Données et Intelligence Artificielle (IDIA)', place:'Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi', desc:'Architectures de données distribuées, pipelines de traitement massif (ETL/ELT), machine learning, deep learning, architectures RAG et gouvernance des données.', tags:['Spark & Hadoop','Deep Learning & NLP','RAG & LLMs','Airflow','Data Warehouse & Data Lake'], link:'Missions chez SAT (SOSAUTO & OmniLog)' },
+ { date:'2025 — 2026', state:'Diplômé', title:'Licence — Ingénierie de Développement d\'Applications Informatiques (IDAI)', place:'Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi', desc:'Génie logiciel, bases relationnelles en 3ème forme normale, sécurité applicative, architectures web et mobiles.', tags:['Modélisation 3NF','Sécurité & RBAC','Architectures MVC','Web & mobile','Méthodes agiles'], link:'DC-Manager, Gestion Scolaire & Occasio' },
+ { date:'2022 — 2025', state:'Socle scientifique', title:'DEUST — Mathématiques, Informatique, Physique (MIP)', place:'Faculté des Sciences et Techniques de Tanger — Université Abdelmalek Essaâdi', desc:'Cycle fondamental : calcul matriciel, algèbre linéaire, probabilités, statistiques et programmation en C/C++.', tags:['Algèbre linéaire','Probabilités & statistiques','Algorithmique C/C++','Théorie des graphes','Analyse numérique'], link:'TrafficCore Simulator 3D (C++14 & graphes)' },
+ { date:'2021 — 2022', state:'Taroudant', title:'Baccalauréat Scientifique — Sciences Physiques et Chimiques (option Français)', place:'Lycée Qualifiant Abdallah Chefchaouni — Oulad Teima — Taroudant', desc:'Formation scientifique initiale ayant développé l\'esprit critique, le raisonnement déductif et le goût de la formalisation.', tags:[] }
 ];
 
 const CONTACTS = [
- ['Email','dany.homam@etu.uae.ac.ma','mailto:dany.homam@etu.uae.ac.ma','Candidatures, stages, demandes formelles.'],
- ['Téléphone & WhatsApp','+212 6 68 13 29 68','https://wa.me/212668132968','Échanges rapides et entretiens de présélection.'],
- ['LinkedIn','linkedin.com/in/homam-dany','https://linkedin.com/in/homam-dany','Mon réseau professionnel.'],
- ['GitHub','github.com/Homam-Dany','https://github.com/Homam-Dany','Code source et réalisations.']
+ ['Email institutionnel & pro','dany.homam@etu.uae.ac.ma','mailto:dany.homam@etu.uae.ac.ma','Candidatures de stage, embauche et demandes formelles.','Envoyer un courriel'],
+ ['Téléphone & WhatsApp','+212 6 68 13 29 68','https://wa.me/212668132968','Entretiens de présélection et échanges rapides.','Écrire sur WhatsApp'],
+ ['Réseau professionnel','linkedin.com/in/homam-dany','https://linkedin.com/in/homam-dany','Recommandations, actualités et réseau.','Voir le profil LinkedIn'],
+ ['Code & projets','github.com/Homam-Dany','https://github.com/Homam-Dany','Code source, algorithmes et architectures Big Data.','Explorer les dépôts']
 ];
 
 /* ===================== OUTILS ===================== */
 const $ = id => document.getElementById(id);
-const chip = (t, c='bg-sage-50 border-sage-100') => `<span class="px-2.5 py-1 rounded-lg ${c} text-sage-800 text-xs font-medium border">${t}</span>`;
-const head = (t, p) => `<div class="text-center max-w-3xl mx-auto mb-12"><h2 class="font-serif text-4xl sm:text-5xl font-bold leading-tight">${t}</h2><p class="mt-3 text-sage-600 text-sm sm:text-base">${p}</p></div>`;
-const img = (src, alt, cls='') => `<img src="./${src}" alt="${alt}" class="${cls}" onerror="this.style.display='none'" />`;
+const chip = (t,c='bg-sage-50 border-sage-100') => `<span class="px-2.5 py-1 rounded-lg ${c} text-sage-800 text-xs font-medium border">${t}</span>`;
+const head = (badge,t,p) => `<div class="text-center max-w-3xl mx-auto mb-12">
+  <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-xs font-semibold mb-4 shadow-sm"><span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>${badge}</span>
+  <h2 class="font-serif text-4xl sm:text-5xl font-bold leading-tight">${t}</h2><p class="mt-4 text-sage-600 text-sm sm:text-base leading-relaxed">${p}</p></div>`;
+/* Image à sa place d'origine ; si le fichier est introuvable, un cadre indique le nom attendu */
+function miss(el){ const d=document.createElement('div'); d.className='w-full h-full min-h-[110px] flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-sage-200 rounded-2xl bg-white/70'; d.innerHTML='<span class="text-xs font-bold text-sage-900">'+(el.alt||'Image')+'</span><span class="text-[10px] text-sage-400 mt-1">'+el.dataset.f+'</span>'; el.replaceWith(d); }
+const img = (src,alt,cls='') => `<img src="./${src}" alt="${alt}" data-f="${src}" class="${cls}" onerror="miss(this)" />`;
+const banner = items => `<div class="mt-12 p-6 sm:p-8 rounded-3xl bg-sage-50/70 border border-sage-200/70 grid sm:grid-cols-3 gap-6">${items.map(i=>`<div class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-white border border-sage-200 text-sage-700 flex items-center justify-center shadow-sm flex-shrink-0">${ico(i[0],'w-5 h-5')}</span><div><p class="text-xs font-bold">${i[1]}</p><p class="text-[11px] text-sage-600">${i[2]}</p></div></div>`).join('')}</div>`;
 
 /* ===================== VUES ===================== */
 function renderExperience(){
-  $('view-experience').innerHTML = `<div class="max-w-6xl mx-auto">
-  ${head('Expériences en entreprise','Missions backend, RAG et recherche sémantique chez <strong>Smart Automation Technologies (SAT)</strong>, Tanger.')}
-  <div class="space-y-10">${EXPERIENCES.map(e=>`
-   <article class="bg-white rounded-[2rem] p-6 sm:p-10 border border-sage-100 shadow-card">
-    <div class="flex flex-wrap gap-2 mb-3"><span class="px-3 py-1 rounded-full bg-sage-900 text-white text-xs font-semibold">${e.tag}</span><span class="px-3 py-1 rounded-full bg-sage-100 text-xs font-semibold">${e.date}</span></div>
-    <h3 class="font-serif text-2xl sm:text-3xl font-bold">${e.title}</h3><p class="text-sm text-sage-600 mt-1">${e.sub}</p>
-    <ul class="mt-6 space-y-3 text-sage-700 font-light">${e.points.map(p=>`<li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sage-100 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✓</span><span><strong class="font-semibold">${p[0]} :</strong> ${p[1]}</span></li>`).join('')}</ul>
-    <div class="mt-6 flex flex-wrap gap-2">${e.tech.map(t=>chip(t)).join('')}</div>
-    <div class="mt-8 pt-6 border-t border-sage-100 grid sm:grid-cols-3 gap-4">${e.imgs.map((s,i)=>`<div class="rounded-2xl overflow-hidden border border-sage-100 bg-sage-50 aspect-video">${img(s,'Aperçu '+(i+1),'w-full h-full object-cover')}</div>`).join('')}</div>
-   </article>`).join('')}</div></div>`;
+ $('view-experience').innerHTML = `<div class="max-w-6xl mx-auto">
+ ${head('Parcours professionnel','Expériences en entreprise','Missions de développement backend, d\'architectures RAG et de recherche sémantique au sein de <strong>Smart Automation Technologies (SAT)</strong>.')}
+ <div class="mb-10 bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 shadow-card flex flex-col sm:flex-row items-center gap-6">
+  <div class="w-20 h-20 rounded-2xl bg-sage-50 border border-sage-100 p-2 flex items-center justify-center overflow-hidden flex-shrink-0"><img src="./SAT.png" alt="SAT" class="w-full h-full object-contain" onerror="this.replaceWith(document.createTextNode('SAT'))" /></div>
+  <div class="text-center sm:text-left"><div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1"><h3 class="font-serif text-2xl font-bold">SMART AUTOMATION TECHNOLOGIES (SAT)</h3><span class="px-3 py-0.5 rounded-full bg-sage-100 text-xs font-semibold">Tanger, Maroc</span></div>
+  <p class="text-sm text-sage-600">Solutions logicielles intelligentes, automatisation et plateformes marketplace.</p></div></div>
+ <div class="space-y-10">${EXPERIENCES.map(e=>`
+  <article class="bg-white rounded-[2rem] p-6 sm:p-10 md:p-12 border border-sage-100 shadow-card hover:shadow-hover transition-all">
+   <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-sage-100">
+    <div><div class="flex flex-wrap gap-2 mb-2"><span class="px-3 py-1 rounded-full bg-sage-900 text-white text-xs font-semibold">${e.tag}</span><span class="px-3 py-1 rounded-full bg-sage-100 text-xs font-semibold">${e.date}</span></div>
+    <h3 class="font-serif text-2xl md:text-3xl font-bold">${e.title}</h3><p class="text-sm font-medium text-sage-600 mt-1">${e.sub}</p></div>
+    <div class="flex flex-wrap gap-2 lg:max-w-xs lg:justify-end">${e.stack.map(t=>chip(t)).join('')}</div>
+   </div>
+   <div class="py-6"><h4 class="text-xs font-semibold text-sage-500 mb-4">Missions et réalisations clés</h4>
+   <ul class="space-y-3.5 text-sage-700 font-light">${e.points.map(p=>`<li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sage-100 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✓</span><span><strong class="font-semibold">${p[0]} :</strong> ${p[1]}</span></li>`).join('')}</ul></div>
+   <div class="pb-6 flex flex-wrap items-center gap-2"><span class="text-xs font-bold text-sage-500 mr-2">Environnement :</span>${e.env.map(t=>chip(t)).join('')}</div>
+   <div class="pt-6 border-t border-sage-100"><h4 class="text-xs font-semibold text-sage-500 mb-4">Captures du projet</h4>
+   <div class="grid sm:grid-cols-3 gap-4">${e.shots.map(s=>`<figure class="zoom relative rounded-2xl overflow-hidden border border-sage-100 bg-sage-50/60 aspect-video shadow-sm">${img(s[0],s[1],'w-full h-full object-cover')}<figcaption class="absolute bottom-2 left-2 bg-sage-900/85 backdrop-blur px-2.5 py-1 rounded-md text-[10px] font-semibold text-white">${s[1]}</figcaption></figure>`).join('')}</div></div>
+  </article>`).join('')}</div></div>`;
 }
 
+function projectCard(p){
+ return `<article data-cat="${p.cat}" class="pc zoom ${p.big?'md:col-span-2 lg:grid lg:grid-cols-12':'flex flex-col'} bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-hover transition-all">
+  <div class="relative overflow-hidden ${p.big?'lg:col-span-5 h-72 lg:h-auto':'h-60'} ${p.contain?'bg-sage-50 p-4 flex items-center justify-center':'bg-sage-950'}">
+   ${img(p.img,p.title,p.contain?'max-h-full max-w-full object-contain':'w-full h-full object-cover')}
+   ${p.contain?'':'<div class="absolute inset-0 bg-gradient-to-t from-sage-950/70 via-transparent to-transparent pointer-events-none"></div>'}
+   <div class="absolute top-4 left-4 flex flex-wrap gap-2">${p.badges.map(b=>`<span class="bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold text-sage-900">${b}</span>`).join('')}</div>
+   <span class="absolute top-4 right-4 bg-sage-900/90 text-white px-3 py-1 rounded-full text-[11px] font-bold">${p.label}</span>
+  </div>
+  <div class="${p.big?'lg:col-span-7 md:p-10':''} p-6 sm:p-8 flex flex-col flex-1">
+   <span class="text-xs font-semibold text-sage-500">${p.kind}</span>
+   <h3 class="font-serif text-2xl sm:text-3xl font-bold mt-1">${p.title}</h3>
+   <p class="text-sage-700 font-light text-sm leading-relaxed mt-3">${p.desc}</p>
+   <ul class="mt-4 space-y-2 text-xs text-sage-600 flex-1">${p.pts.map(t=>`<li class="flex gap-2"><span class="w-5 h-5 rounded-md bg-sage-100 text-sage-800 text-[10px] font-bold flex items-center justify-center flex-shrink-0">✓</span><span>${t}</span></li>`).join('')}</ul>
+   <div class="flex flex-wrap gap-1.5 mt-5">${p.tags.map(t=>chip(t)).join('')}</div>
+   <div class="mt-5 pt-4 border-t border-sage-100 flex items-center justify-between"><span class="text-xs font-semibold text-sage-500">Dépôt public</span><a href="${p.gh}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-900 text-white text-xs font-bold hover:bg-sage-700 transition">Code sur GitHub ↗</a></div>
+  </div></article>`;
+}
 function renderProjects(){
-  $('view-projects').innerHTML = `<div class="max-w-6xl mx-auto">
-  ${head('Projets & architectures','Algorithmique, systèmes distribués, bases de données et développement logiciel.')}
-  <div class="flex flex-wrap justify-center gap-2 mb-10">${FILTERS.map((f,i)=>`<button data-f="${f[0]}" onclick="filterProjects('${f[0]}')" class="pf px-4 py-2 rounded-full text-xs font-semibold border transition ${i?'bg-white border-sage-200 hover:bg-sage-50':'bg-sage-900 text-white border-sage-900'}">${f[1]}</button>`).join('')}</div>
-  <div class="grid md:grid-cols-2 gap-8">${PROJECTS.map(p=>`
-   <article data-cat="${p.cat}" class="pc ${p.big?'md:col-span-2 lg:grid lg:grid-cols-12':'flex flex-col'} bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-card hover:shadow-hover transition-all">
-    <div class="${p.big?'lg:col-span-5 h-64 lg:h-auto':'h-56'} bg-sage-950 ${p.contain?'!bg-sage-50 p-4 flex items-center justify-center':''}">${img(p.img,p.title,p.contain?'max-h-full object-contain':'w-full h-full object-cover')}</div>
-    <div class="${p.big?'lg:col-span-7':''} p-6 sm:p-8 flex flex-col flex-1">
-      <span class="text-xs font-semibold text-sage-500">${p.kind}</span>
-      <h3 class="font-serif text-2xl sm:text-3xl font-bold mt-1">${p.title}</h3>
-      <p class="text-sage-700 font-light text-sm leading-relaxed mt-3 flex-1">${p.desc}</p>
-      <div class="flex flex-wrap gap-1.5 mt-4">${p.tags.map(t=>chip(t)).join('')}</div>
-      <a href="${p.gh}" target="_blank" rel="noopener" class="mt-5 pt-4 border-t border-sage-100 text-xs font-bold hover:text-sage-500 transition">Code sur GitHub ↗</a>
-    </div></article>`).join('')}</div></div>`;
+ $('view-projects').innerHTML = `<div class="max-w-6xl mx-auto">
+ ${head('Portfolio & réalisations','Projets & architectures d\'ingénierie','Algorithmique avancée, modélisation, systèmes distribués et développement logiciel robuste.')}
+ <div class="flex flex-wrap justify-center gap-2 mb-10">${FILTERS.map((f,i)=>`<button data-f="${f[0]}" onclick="filterProjects('${f[0]}')" class="pf px-4 py-2 rounded-full text-xs font-semibold border transition ${i?'bg-white border-sage-200 hover:bg-sage-50':'bg-sage-900 text-white border-sage-900'}">${f[1]}</button>`).join('')}</div>
+ <div class="grid md:grid-cols-2 gap-8">${PROJECTS.map(projectCard).join('')}</div></div>`;
 }
 function filterProjects(cat){
-  document.querySelectorAll('.pf').forEach(b=>{ const on=b.dataset.f===cat; b.className='pf px-4 py-2 rounded-full text-xs font-semibold border transition '+(on?'bg-sage-900 text-white border-sage-900':'bg-white border-sage-200 hover:bg-sage-50'); });
-  document.querySelectorAll('.pc').forEach(c=>{ c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'; });
+ document.querySelectorAll('.pf').forEach(b=>{ const on=b.dataset.f===cat; b.className='pf px-4 py-2 rounded-full text-xs font-semibold border transition '+(on?'bg-sage-900 text-white border-sage-900':'bg-white border-sage-200 hover:bg-sage-50'); });
+ document.querySelectorAll('.pc').forEach(c=>{ c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'; });
 }
 
 function renderAbout(){
-  $('view-about').innerHTML = `<div class="max-w-6xl mx-auto">
-  ${head('De la rigueur mathématique à l\'IA concrète','Élève-ingénieur passionné par le génie logiciel, la théorie mathématique et la donnée.')}
-  <div class="grid lg:grid-cols-12 gap-10 items-start">
-   <div class="lg:col-span-5 flex flex-col items-center">
-    <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-white">${img('MaPhoto1.jpeg','Photo de Homam Dany','w-full h-auto block')}</div>
-    <div class="mt-6 w-full max-w-sm p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card text-center">
-      <h3 class="font-serif text-2xl font-bold">Homam Dany</h3><p class="text-xs text-sage-500 mt-1">Master IDIA — FST Tanger • Tanger, Maroc</p>
-      <div class="flex flex-wrap justify-center gap-2 mt-4">${chip('Arabe (natif)')}${chip('Français (courant)')}${chip('Anglais (technique)')}</div>
-      <button onclick="go('contact')" class="mt-5 w-full px-5 py-2.5 rounded-full bg-sage-900 text-white font-bold text-xs hover:bg-sage-700 transition">Prendre contact</button>
-    </div>
-   </div>
-   <div class="lg:col-span-7 space-y-6">
-    <div class="bg-white rounded-3xl p-8 border border-sage-200/80 shadow-card space-y-4 text-sage-700 font-light leading-relaxed">
-      <h3 class="font-serif text-3xl font-bold text-sage-900">De la donnée brute à la décision</h3>
-      <p>Je prépare un <strong>Master Ingénierie des Données et Intelligence Artificielle</strong> à la FST Tanger, après un <strong>DEUST MIP</strong> et une <strong>Licence IDAI</strong>.</p>
-      <p>Ma conviction : <em>les systèmes d'IA les plus performants reposent sur des architectures logicielles saines, des bases de données bien modélisées et des flux de données résilients.</em></p>
-      <p>Chez <strong>SAT</strong>, sur SOSAUTO et OmniLog, j'ai appliqué ces principes : services backend modulaires, architectures <strong>RAG avec OpenAI</strong> et <strong>recherche sémantique</strong>.</p>
-    </div>
-    <div class="grid sm:grid-cols-3 gap-4">
-      ${[['Rigueur formelle','Modélisation mathématique, 3NF, architectures sans ambiguïté.'],['Culture produit','La technique au service de la valeur métier et de l\'utilisateur.'],['Veille active','LLMs, RAG, bases vectorielles et Big Data.']].map(c=>`<div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm"><h4 class="font-serif text-lg font-bold">${c[0]}</h4><p class="text-xs text-sage-600 mt-1 leading-snug">${c[1]}</p></div>`).join('')}
-    </div>
-   </div>
-  </div></div>`;
+ $('view-about').innerHTML = `<div class="max-w-6xl mx-auto">
+ ${head('Profil & philosophie d\'ingénierie','De la rigueur mathématique à l\'IA concrète','Élève-ingénieur passionné par la robustesse du génie logiciel, la théorie mathématique et la puissance décisionnelle de la donnée.')}
+ <div class="grid lg:grid-cols-12 gap-10 items-start">
+  <div class="lg:col-span-5 flex flex-col items-center">
+   <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-white">${img('MaPhoto1.jpeg','Photo de Homam Dany','w-full h-auto block rounded-2xl')}</div>
+   <div class="mt-6 w-full max-w-sm p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card text-center">
+    <h3 class="font-serif text-2xl font-bold">Homam Dany</h3><p class="text-xs font-semibold text-sage-500 mt-1">Master IDIA • FST Tanger</p>
+    <p class="flex items-center justify-center gap-2 mt-3 text-xs text-sage-600">${ico('pin','w-4 h-4')}Tanger, Maroc (mobilité internationale)</p>
+    <div class="pt-5 mt-5 border-t border-sage-100 flex flex-wrap justify-center gap-2">${chip('Arabe (natif)')}${chip('Français (courant)')}${chip('Anglais (technique)')}</div>
+    <button onclick="go('contact')" class="mt-5 w-full px-5 py-2.5 rounded-full bg-sage-900 text-white font-bold text-xs hover:bg-sage-700 transition">Prendre contact →</button>
+   </div></div>
+  <div class="lg:col-span-7 space-y-6">
+   <div class="bg-white rounded-3xl p-8 md:p-10 border border-sage-200/80 shadow-card space-y-4 text-sage-700 font-light leading-relaxed">
+    <h3 class="font-serif text-3xl font-bold text-sage-900">De la donnée brute à la décision intelligente</h3>
+    <p>Je prépare un <strong>Master Ingénierie des Données et Intelligence Artificielle (IDIA)</strong> à la FST Tanger, après un <strong>DEUST MIP</strong> et une <strong>Licence IDAI</strong>.</p>
+    <p>Ma conviction : <em>les systèmes d'IA les plus performants reposent sur des architectures logicielles saines, des bases de données rigoureusement modélisées et des flux de données résilients.</em></p>
+    <p>Chez <strong>SAT</strong>, sur <strong>SOSAUTO</strong> et <strong>OmniLog</strong>, j'ai appliqué ces principes : services backend modulaires, architectures <strong>RAG avec OpenAI</strong> et <strong>recherche sémantique</strong>.</p></div>
+   <div class="grid sm:grid-cols-3 gap-4">${[['check','Rigueur formelle','Modélisation mathématique, 3NF, architectures sans ambiguïté.'],['bolt','Culture produit','La technique au service de la valeur métier et de l\'utilisateur.'],['term','Veille active','LLMs, RAG, bases vectorielles et Big Data.']].map(c=>`<div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm"><div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center mb-3">${ico(c[0],'w-5 h-5')}</div><h4 class="font-serif text-lg font-bold">${c[1]}</h4><p class="text-xs text-sage-600 mt-1 leading-snug">${c[2]}</p></div>`).join('')}</div>
+   <div class="grid grid-cols-3 gap-3 p-5 rounded-2xl bg-sage-50/80 border border-sage-200/70 text-center">
+    <div><p class="font-serif text-3xl font-bold">2</p><p class="text-[11px] text-sage-600">expériences SAT</p></div><div><p class="font-serif text-3xl font-bold">5</p><p class="text-[11px] text-sage-600">projets livrés</p></div><div><p class="font-serif text-3xl font-bold">3</p><p class="text-[11px] text-sage-600">cycles universitaires</p></div></div>
+  </div></div></div>`;
 }
 
 function renderSkills(){
-  $('view-skills').innerHTML = `<div class="max-w-6xl mx-auto">
-  ${head('Stack technique & compétences','Ingénierie des données, IA appliquée et développement logiciel.')}
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">${SKILLS.map(s=>`
-   <div class="p-7 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover transition-all">
-    <h3 class="font-serif text-xl font-bold">${s[0]}</h3><p class="text-xs text-sage-600 font-light mt-2 mb-5 leading-relaxed">${s[1]}</p>
-    <div class="flex flex-wrap gap-2">${s[2].map(t=>chip(t)).join('')}</div></div>`).join('')}</div></div>`;
+ $('view-skills').innerHTML = `<div class="max-w-6xl mx-auto">
+ ${head('Expertise & savoir-faire technique','Stack technique & compétences clés','Ingénierie des flux de données, intelligence artificielle appliquée et développement logiciel d\'entreprise.')}
+ <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">${PILLARS.map(p=>`<div class="p-5 rounded-2xl bg-white border border-sage-200/80 shadow-sm flex gap-3.5"><div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-800 flex items-center justify-center flex-shrink-0">${ico(p[0],'w-5 h-5')}</div><div><h4 class="text-sm font-bold">${p[1]}</h4><p class="text-[11px] text-sage-600 mt-1 leading-snug">${p[2]}</p></div></div>`).join('')}</div>
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">${SKILLS.map((s,i)=>`
+  <div class="p-7 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover transition-all flex flex-col justify-between">
+   <div><div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center mb-5 shadow-sm">${ico(s[0])}</div>
+   <h3 class="font-serif text-xl font-bold">${s[1]}</h3><p class="text-xs text-sage-600 font-light mt-2 mb-5 leading-relaxed">${s[2]}</p>
+   <div class="flex flex-wrap gap-2">${s[3].map((t,j)=>(i===1&&j===0)?chip(t,'bg-sage-900 !text-white border-sage-900'):chip(t)).join('')}</div></div>
+   <div class="pt-5 mt-6 border-t border-sage-100 flex items-center justify-between text-[11px] text-sage-500 font-medium"><span>${s[4]}</span><span class="text-sage-700 font-bold">${s[5]}</span></div></div>`).join('')}</div>
+ ${banner([['check','Rigueur théorique','Compréhension mathématique des modèles'],['term','Pratique en entreprise','Missions chez SAT Tanger'],['code','Qualité du code','Architectures modulaires et documentées']])}</div>`;
 }
 
 function renderParcours(){
-  $('view-parcours').innerHTML = `<div class="max-w-4xl mx-auto">
-  ${head('Parcours académique','Des fondations mathématiques à la spécialisation en données et IA, à la FST Tanger.')}
-  <div class="relative pl-8 sm:pl-10 space-y-8 before:absolute before:left-2 sm:before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sage-900 before:to-sage-200">${PARCOURS.map((p,i)=>`
-   <div class="relative"><span class="absolute -left-8 sm:-left-10 top-7 w-5 h-5 rounded-full border-4 border-white shadow ${i===0?'bg-sage-900':'bg-sage-400'}"></span>
-    <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sage-200/80 shadow-card">
-     <div class="flex flex-wrap gap-2 mb-3"><span class="px-3 py-1 rounded-full ${i===0?'bg-sage-900 text-white':'bg-sage-100'} text-xs font-semibold">${p.date}</span><span class="px-3 py-1 rounded-full bg-sage-50 border border-sage-200/60 text-xs font-medium">${p.state}</span></div>
-     <h3 class="font-serif text-2xl font-bold">${p.title}</h3><p class="text-sm font-medium text-sage-600 mt-1">${p.place}</p>
-     <p class="text-sage-700 font-light text-sm leading-relaxed mt-3">${p.desc}</p>
-     ${p.tags.length?`<div class="flex flex-wrap gap-2 mt-4">${p.tags.map(t=>chip(t)).join('')}</div>`:''}
-    </div></div>`).join('')}</div></div>`;
+ $('view-parcours').innerHTML = `<div class="max-w-5xl mx-auto">
+ ${head('Formation scientifique & cursus','Parcours académique d\'excellence','Des fondations mathématiques et algorithmiques à la spécialisation en Ingénierie des Données et IA, à la FST Tanger.')}
+ <div class="relative pl-8 sm:pl-10 space-y-9 before:absolute before:left-2 sm:before:left-3 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-sage-900 before:via-sage-500 before:to-sage-200">${PARCOURS.map((p,i)=>`
+  <div class="relative"><span class="absolute -left-8 sm:-left-10 top-7 w-5 h-5 rounded-full border-4 border-white shadow-md ${['bg-sage-900','bg-sage-700','bg-sage-500','bg-sage-300'][i]}"></span>
+   <div class="p-6 sm:p-9 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover transition-all">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4"><div class="flex flex-wrap gap-2"><span class="px-3.5 py-1 rounded-full ${i===0?'bg-sage-900 text-white':'bg-sage-100'} text-xs font-bold">${p.date}</span><span class="px-3 py-1 rounded-full bg-sage-50 border border-sage-200/60 text-xs font-semibold">${p.state}</span></div></div>
+    <h3 class="font-serif text-2xl sm:text-3xl font-bold">${p.title}</h3><p class="text-sm font-semibold text-sage-600 mt-1">${p.place}</p>
+    <p class="text-sage-700 font-light text-sm sm:text-base leading-relaxed mt-4">${p.desc}</p>
+    ${p.tags.length?`<div class="mt-5"><span class="text-xs font-semibold text-sage-500 block mb-2.5">Savoir-faire & modules majeurs</span><div class="flex flex-wrap gap-2">${p.tags.map(t=>chip(t)).join('')}</div></div>`:''}
+    ${p.link?`<div class="mt-5 pt-4 border-t border-sage-100 flex flex-wrap justify-between gap-2 text-xs text-sage-600"><span class="font-medium">Réalisations associées :</span><span class="font-bold text-sage-900">${p.link}</span></div>`:''}
+   </div></div>`).join('')}</div>
+ ${banner([['pin','FST Tanger','Université Abdelmalek Essaâdi'],['bolt','Continuité du cursus','DEUST MIP → Licence → Master'],['check','Objectif PFE','Stage de fin d\'études 2026–2027']])}</div>`;
 }
 
 function renderContact(){
-  $('view-contact').innerHTML = `<div class="max-w-6xl mx-auto">
-  ${head('Construisons vos projets Data & IA','À la recherche d\'un <strong>stage PFE</strong> ou d\'un poste junior. Parlons d\'architectures de données, de modèles prédictifs ou de solutions RAG.')}
-  <div class="grid lg:grid-cols-12 gap-8">
-   <div class="lg:col-span-5 bg-sage-950 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
-    <div>
-      <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage-900 border border-sage-700 text-xs text-sage-200 mb-6"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Disponible : stage PFE / junior 2026–2027</span>
-      <h3 class="font-serif text-3xl font-bold">Homam Dany</h3>
-      <p class="text-sage-300 text-sm font-light mt-2">Master IDIA, FST Tanger. Data engineering, Big Data, RAG & LLMs, backend.</p>
-      <p class="text-sage-200 text-sm mt-5">Tanger, Maroc • Mobilité nationale et internationale<br>Présentiel, hybride ou remote</p>
-    </div>
-    <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="mt-8 px-6 py-4 rounded-2xl bg-white text-sage-950 font-bold text-sm text-center hover:bg-sage-100 transition">Télécharger mon CV (PDF)</a>
-   </div>
-   <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">${CONTACTS.map(c=>`
-    <a href="${c[2]}" ${c[2].startsWith('http')?'target="_blank" rel="noopener"':''} class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:border-sage-400 transition-all flex flex-col justify-between">
-     <div><span class="text-xs font-semibold text-sage-500">${c[0]}</span><p class="font-semibold text-sage-900 break-all mt-1">${c[1]}</p><p class="text-xs text-sage-600 font-light mt-2">${c[3]}</p></div>
-     <span class="mt-5 pt-4 border-t border-sage-100 text-xs font-bold group-hover:text-sage-500 transition">Ouvrir ↗</span></a>`).join('')}</div>
-  </div></div>`;
+ $('view-contact').innerHTML = `<div class="max-w-6xl mx-auto">
+ ${head('Contact & opportunités','Construisons vos projets Data & IA','À la recherche d\'un <strong>stage de fin d\'études (PFE)</strong> ou d\'un poste junior. Parlons d\'architectures de données, de modèles prédictifs ou de solutions RAG.')}
+ <div class="grid lg:grid-cols-12 gap-8">
+  <div class="lg:col-span-5 bg-sage-950 text-white rounded-3xl p-8 sm:p-10 border border-sage-800 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+   <div class="absolute -top-24 -right-24 w-60 h-60 bg-sage-700/25 rounded-full blur-3xl"></div><div class="absolute -bottom-24 -left-24 w-60 h-60 bg-sage-500/15 rounded-full blur-3xl"></div>
+   <div class="relative">
+    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-900/90 border border-sage-700/70 text-sage-200 text-xs mb-6"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Disponible : stage PFE / junior 2026–2027</span>
+    <h3 class="font-serif text-3xl font-bold">Homam Dany</h3><p class="text-sage-300 text-sm font-light mt-2 mb-6">Élève-ingénieur en Master IDIA à la FST Tanger.</p>
+    <div class="space-y-4 pt-6 border-t border-sage-800/80 text-sm text-sage-200">
+     <p><strong class="text-white block font-medium">Localisation</strong>Tanger, Maroc (mobilité nationale et internationale)</p>
+     <p><strong class="text-white block font-medium">Contrat recherché</strong>Stage PFE / poste junior</p>
+     <p><strong class="text-white block font-medium">Domaines</strong>Data engineering, Big Data, RAG & LLMs, backend</p></div></div>
+   <div class="relative pt-8 space-y-3">
+    <a href="./Homam_Dany.pdf" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-4 rounded-2xl bg-white text-sage-950 font-bold text-sm shadow-glow hover:bg-sage-100 transition">Télécharger mon CV (PDF)</a>
+    <a href="https://wa.me/212668132968" target="_blank" rel="noopener" class="w-full flex items-center justify-center px-6 py-3.5 rounded-2xl bg-sage-900/90 hover:bg-sage-800 border border-sage-700/80 text-white font-semibold text-xs transition">Échanger sur WhatsApp</a></div>
+  </div>
+  <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">${CONTACTS.map(c=>`
+   <a href="${c[2]}" ${c[2].startsWith('http')?'target="_blank" rel="noopener"':''} class="group p-6 rounded-3xl bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:border-sage-400 transition-all flex flex-col justify-between">
+    <div><span class="text-xs font-semibold text-sage-500">${c[0]}</span><p class="font-semibold text-sage-900 break-all mt-1">${c[1]}</p><p class="text-xs text-sage-600 font-light mt-2">${c[3]}</p></div>
+    <span class="mt-5 pt-4 border-t border-sage-100 text-xs font-bold group-hover:text-sage-500 transition">${c[4]} ↗</span></a>`).join('')}</div>
+ </div>
+ ${banner([['bolt','Réactivité assurée','Réponse sous 24h ouvrées'],['check','Convention académique','FST Tanger prête à signature'],['pin','Flexibilité d\'accueil','Présentiel, hybride ou remote']])}</div>`;
 }
 
 /* ===================== NAVIGATION ===================== */
 function go(id){
-  if(!VIEWS.some(v=>v[0]===id)) id='home';
-  VIEWS.forEach(v=>$('view-'+v[0]).classList.toggle('hidden', v[0]!==id));
-  document.querySelectorAll('[data-t]').forEach(b=>{
-    const on=b.dataset.t===id, m=b.dataset.m==='1';
-    b.className = (m?'py-2.5 px-4 text-left rounded-xl text-sm ':'px-4 py-2 rounded-full text-xs transition ') + (on?'bg-sage-900 text-white font-bold':'text-sage-800 font-medium hover:bg-white');
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
-  history.replaceState(null,null,'#'+id);
-  $('mobilePanel').classList.add('hidden'); $('menuBtn').setAttribute('aria-expanded','false');
+ if(!VIEWS.some(v=>v[0]===id)) id='home';
+ VIEWS.forEach(v=>$('view-'+v[0]).classList.toggle('hidden', v[0]!==id));
+ document.querySelectorAll('[data-t]').forEach(b=>{ const on=b.dataset.t===id, m=b.dataset.m==='1';
+  b.className=(m?'py-2.5 px-4 text-left rounded-xl text-sm ':'px-4 py-2 rounded-full text-xs transition ')+(on?'bg-sage-900 text-white font-bold':'text-sage-800 font-medium hover:bg-white'); });
+ window.scrollTo({top:0,behavior:'smooth'});
+ history.replaceState(null,null,'#'+id);
+ $('mobilePanel').classList.add('hidden'); $('menuBtn').setAttribute('aria-expanded','false');
 }
 $('nav').innerHTML = VIEWS.map(v=>`<button data-t="${v[0]}" onclick="go('${v[0]}')">${v[1]}</button>`).join('');
 $('mnav').innerHTML = VIEWS.map(v=>`<button data-t="${v[0]}" data-m="1" onclick="go('${v[0]}')">${v[1]}</button>`).join('');
 $('menuBtn').addEventListener('click',()=>{ const o=$('mobilePanel').classList.toggle('hidden'); $('menuBtn').setAttribute('aria-expanded',String(!o)); });
+
+/* Galerie d'accueil : 4 projets avec leurs images */
+$('homeGallery').innerHTML = PROJECTS.slice(1).map(p=>`<button onclick="go('projects');filterProjects('${p.cat}')" class="zoom text-left rounded-3xl overflow-hidden bg-white border border-sage-200/80 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all">
+ <div class="h-40 overflow-hidden ${p.contain?'bg-sage-50 p-3 flex items-center justify-center':'bg-sage-950'}">${img(p.img,p.title,p.contain?'max-h-full object-contain':'w-full h-full object-cover')}</div>
+ <div class="p-4"><span class="text-[11px] font-semibold text-sage-500">${p.label}</span><h3 class="font-serif text-lg font-bold leading-tight">${p.title}</h3></div></button>`).join('');
 
 const STACK = ['Python','SQL','Apache Spark','Docker','Linux','PyTorch','MongoDB','PostgreSQL','Node.js','Airflow','RAG','C++14','Hadoop','Neo4j'];
 $('marquee').innerHTML = [...STACK,...STACK].map(t=>`<span class="px-8 whitespace-nowrap">${t}<span class="text-sage-300 ml-16">•</span></span>`).join('');
 $('yr').textContent = new Date().getFullYear();
 
 renderExperience(); renderProjects(); renderAbout(); renderSkills(); renderParcours(); renderContact();
-window.addEventListener('DOMContentLoaded',()=>go(location.hash.slice(1)||'home'));
-if(document.readyState!=='loading') go(location.hash.slice(1)||'home');
+go(location.hash.slice(1)||'home');
 </script>
 </body>
 </html>
